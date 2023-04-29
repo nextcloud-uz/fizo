@@ -14,10 +14,11 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bosh sahifa</title>
+	<title>Fizo.uz | Bosh sahifa</title>
      <link rel="icon" type="image/x-icon" href="./img/fizo.ico">
      
 	<link rel="stylesheet" type="text/css" href="style.css">
+     <script src="js/script.js" defer></script>
      
      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" /> -->
      <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css" /> -->
@@ -30,6 +31,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
      <!-- MDB -->
      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
      <link rel="stylesheet" href="css/mdb.min.css" />
+     
      
 </head>
 <body>     
@@ -66,8 +68,17 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                          </ul>                                   
                     </div>
                     <div class="d-flex align-items-center">
-                              <button type="button" class="btn btn-success" data-mdb-toggle="modal" data-mdb-target="#ModalCreateTable"><i class="fas fa-plus-circle me-2"></i>Ro`yxat tuzish</button>
-                              <button type="button" class="btn btn-primary ms-1">
+                              <button type="button" class="btn btn-outline-secondary soat me-1"><i class="far fa-clock me-1 "></i>
+                                   <!-- Soat boshlanishi -->
+                                   <span class="soat" id="hours">00</span>
+                                   <span class="soat">:</span>
+                                   <span class="soat" id="minutes">00</span>
+                                   <span class="soat">:</span>
+                                   <span class="soat" id="seconds">00</span>
+                                   <!-- Soat tugashi -->
+                              </button>
+                              <button type="button" class="btn btn-success bg-gradient" data-mdb-toggle="modal" data-mdb-target="#ModalCreateTable"><i class="fas fa-plus-circle me-2"></i>Ro`yxat tuzish</button>
+                              <button type="button" class="btn btn-primary bg-gradient ms-1">
                               <a href="logout.php" class="chiqish">Chiqish</a>
                               </button>                         
                          </div>
@@ -170,13 +181,13 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                              <td><?php echo $row['ball3']; ?></td>
                                              <td><?php echo $row['natija4']; ?></td>
                                              <td><?php echo $row['ball4']; ?></td>
-                                             <td><?php echo $row['umumiyball']; ?></td>
+                                             <td><p class="ball aloball"><?php echo $row['umumiyball']; ?></p></td>
                                              <td><?php echo $row['baho']; ?></td>
                                              <td>
                                                   <button type="button" class="btn btn-secondary editbtn btn-sm px-3" data-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalEdit">
                                                   <i class="fas fa-pen"></i>
                                                   </button>
-                                                  <button type="button" class="btn btn-primary deletebtn btn-sm px-3" data-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalDelete">
+                                                  <button type="button" class="btn btn-danger deletebtn btn-sm px-3" data-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalDelete">
                                                   <i class="fas fa-trash-alt"></i>
                                                   </button>
                                              </td>
@@ -553,13 +564,14 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
           });
      </script> -->
 </body>
-<footer class="bg-light text-center text-lg-start">
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023 Copyright:
-    <a class="text-dark" href="#">fizo.uz</a>
-  </div>
-  <!-- Copyright -->
+<footer class="bg-light text-center text-lg-start fixed-bottom">
+<!-- Copyright -->
+<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+© 2023 Copyright:
+<a class="text-reset fw-bold" href="https://fizo.uz/">Fizo.uz</a>
+| Barcha huquqlar himoyalangan.
+</div>
+<!-- Copyright -->
 </footer>
 </html>
 

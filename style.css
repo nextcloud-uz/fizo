@@ -50,29 +50,38 @@ input {
   z-index: 5;
 }
 
-/* .table th {
-  align-items: center;
-} */
 th {
-  padding: 5px 5px !important;
+  padding: 3px 3px !important;
+  vertical-align: middle;
+  color: #23037c;
 }
+  
+th.royxat {
+  color: #054e34;
+  text-transform: uppercase;
+}
+  
 td {
-  padding: 2px 2px !important;
+  padding: 1px 1px !important;
+  vertical-align: middle;
 }
 
-/* form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0rem 5rem;
-  transition: all 0.2s 0.7s;
-  overflow: hidden;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-} */
+span.soat {
+  font-weight: 900;
+  font-size: 1rem;
+}
 
+button.btn.btn-outline-secondary.soat {
+  padding: 4px 10px 4px;
+}
 
+p.ball.aloball {
+  color: #14A44D;
+  /* color: #3B71CA; */
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
 
 form.sign-up-form {  
   opacity: 0;
