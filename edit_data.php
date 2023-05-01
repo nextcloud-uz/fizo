@@ -1,9 +1,9 @@
 <?php
     include_once 'db_conn.php';
-    $db = mysqli_query($conn,'fizo');    
+    // $db = mysqli_query($conn,'fizo');    
 
     if(isset($_POST['edit_data']))
-    {   
+    {
         $id = $_POST['edit_id'];
         $fish = $_POST['fish'];
         $natija1 = $_POST['natija1'];
@@ -16,17 +16,17 @@
 
         if($query_run)
         {
-            $yili = "SELECT `tugilgan_kuni` FROM `user401` WHERE `user_id`='$id'";            
-            $yoshi = "SELECT TIMESTAMPDIFF(YEAR, ($yili), curdate())";            
+            $yili = "SELECT `tugilgan_kuni` FROM `user401` WHERE `user_id`='$id'";
+            $yoshi = "SELECT TIMESTAMPDIFF(YEAR, ($yili), curdate())";
             $sql = "UPDATE `user401` SET `yoshi`= ($yoshi) WHERE `user_id`='$id'";
             $query_run3 = mysqli_query($conn, $sql);
-            
-            echo '<script> alert("Ma`lumotlar yangilandi"); </script>';            
-            header("Location:home.php");            
+
+            echo '<script> alert("Ma`lumotlar yangilandi"); </script>';
+            header("Location:home.php");
         }
         else
         {
-            echo '<script> alert("Ma`lumotlar yangilanmadi"); </script>';            
+            echo '<script> alert("Ma`lumotlar yangilanmadi"); </script>';
         }
     }
 ?>
