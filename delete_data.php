@@ -1,11 +1,11 @@
 <?php
     include_once 'db_conn.php';
-    $db = mysqli_query($conn,'fizo');   
+    // $db = mysqli_query($conn,'fizo');   
 
     if(isset($_POST['delete_data']))
-    {	 
+    {
         $id = $_POST['delete_id'];
-        
+
         $query = "DELETE FROM `user401` WHERE `user_id` = '$id'";
         $query_run = mysqli_query($conn, $query);
 
@@ -23,6 +23,6 @@
         else
         {
             echo '<script>alert("Ma`lumot o`chirilmadi"); </script>';
-        }        
+        }
     }
 ?>

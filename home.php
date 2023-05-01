@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
@@ -16,10 +16,10 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
 <head>
 	<title>Fizo.uz | Bosh sahifa</title>
      <link rel="icon" type="image/x-icon" href="./img/fizo.ico">
-     
+
 	<link rel="stylesheet" type="text/css" href="style.css">
      <script src="js/script.js" defer></script>
-     
+
      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" /> -->
      <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css" /> -->
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -31,12 +31,12 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
      <!-- MDB -->
      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
      <link rel="stylesheet" href="css/mdb.min.css" />
-     
-     
+
+
 </head>
-<body>     
+<body>
      <!-- Navbar -->
-     <header class="header">     
+     <header class="header">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
                <div class="container-fluid">
                     <a class="navbar-brand" href="./home.php">FIZO.UZ</a>
@@ -65,7 +65,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                          <li class="nav-item">
                               <a class="nav-link" href="#" data-mdb-toggle="modal" data-mdb-target="#PROClick">PRO versiya</a>
                          </li>
-                         </ul>                                   
+                         </ul>
                     </div>
                     <div class="d-flex align-items-center">
                               <button type="button" class="btn btn-outline-secondary soat me-1"><i class="far fa-clock me-1 "></i>
@@ -80,11 +80,11 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                               <button type="button" class="btn btn-success bg-gradient" data-mdb-toggle="modal" data-mdb-target="#ModalCreateTable"><i class="fas fa-plus-circle me-2"></i>Ro`yxat tuzish</button>
                               <button type="button" class="btn btn-primary bg-gradient ms-1">
                               <a href="logout.php" class="chiqish">Chiqish</a>
-                              </button>                         
+                              </button>
                          </div>
                </div>
-          </nav>          
-     
+          </nav>
+
           <!-- <div class="header__content">
                     <a href="#" class="logo">fizo.uz</a>
                     <nav class="nav">
@@ -106,7 +106,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
           <div class="container mt-1 mt-1">
                <h3 class="mt-2 align">Xush kelibsiz, <?php echo $_SESSION['name']; ?></h3>
                <div class="note note-info mb-2 ">
-               <strong>Birinchi navbatda:</strong> Birinchi navbatda ro`yxat shakllantirish tugmasini bosib kerakli mashqlarni tanlang va OK tugmasini bosing 
+               <strong>Birinchi navbatda:</strong> Birinchi navbatda ro`yxat shakllantirish tugmasini bosib kerakli mashqlarni tanlang va OK tugmasini bosing
                Lorem, <code>ipsum dolor</code>  sit amet consectetur adipisicing elit. Cum
                doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui necessitatibus delectus
                placeat illo rem id nisi consequatur esse, sint perspiciatis soluta porro?
@@ -121,26 +121,26 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                <p class="text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolore natus officiis, laudantium ab alias, ad nihil sint debitis exercitationem ea accusantium odit, doloribus quibusdam at optio porro recusandae necessitatibus.</p>
                <!-- <table border="1" cellspacing="0" width="800" align="center"> -->
                <!-- <div class="table-responsive-sm"> -->
-               <section class="pb-4">               
+               <section class="pb-4">
                     <div class="bg-white border rounded-2">
                     <button type="button" class="btn btn-outline-success m-2" data-mdb-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalInsertNatija">Natijalarni kiritish<i class="fas fa-plus-circle ms-2"></i></button>
                     <button type="button" class="btn btn-outline-primary m-2" data-mdb-ripple-color="dark">Exceldagi natijalarni yuklash<i class="fas fa-download ms-2"></i></button>
                     <section class="w-100 p-2 text-center table-responsive">
-                         
+
                          <table id="datatable" class="table table-bordered">
-                              
+
                                    <thead>
                                         <tr class="table-active">
                                         <?php
                                         while ($row = mysqli_fetch_array($resuserbolinma)) {
                                         ?>
                                              <th colspan="14"><?php echo $row['bolinma_nomi']; ?></th>
-                                        <?php 
+                                        <?php
                                         }
                                         ?>
                                         </tr>
 
-                                        <tr>                                             
+                                        <tr>
                                              <th rowspan="3">T/R</th>
                                              <th rowspan="3">F.I.SH</th>
                                              <th colspan="8">Mashqlar nomlanishi</th>
@@ -166,12 +166,12 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                              <th>Ball</th>
                                         </tr>
                                    </thead>
-                              <?php                              
-                              while ($row = mysqli_fetch_array($resuser401)) {                                   
+                              <?php
+                              while ($row = mysqli_fetch_array($resuser401)) {
                               ?>
                                    <tbody>
-                                        <tr>                                             
-                                             <td><?php echo $row["user_id"]; ?></td>                                                                                          
+                                        <tr>
+                                             <td><?php echo $row["user_id"]; ?></td>
                                              <td align="left"><?php echo $row['fish']; ?></td>
                                              <td><?php echo $row['natija1']; ?></td>
                                              <td><?php echo $row['ball1']; ?></td>
@@ -191,12 +191,12 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                                   <i class="fas fa-trash-alt"></i>
                                                   </button>
                                              </td>
-                                        </tr>                                       
+                                        </tr>
                                    </tbody>
-                              <?php 
+                              <?php
                               }
                               ?>
-                         </table> 
+                         </table>
 
                               <!-- Modal Edit data Start-->
                               <div class="modal top fade" id="ModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
@@ -208,7 +208,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                         </div>
                                         <form action="edit_data.php" method="POST">
                                              <div class="modal-body">
-                                                  
+
                                                   <input type="hidden" name="edit_id" id="edit_id">
 
                                                   <div class="form-outline">
@@ -219,29 +219,29 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                                   <br>
                                                   <div class="form-outline">
                                                   <input type="text" id="natija1" name="natija1" class="form-control" />
-                                                  <label class="form-label" for="form13">2-mashq natijalarini kiriting</label>                                             
+                                                  <label class="form-label" for="form13">2-mashq natijalarini kiriting</label>
                                                   </div>
 
                                                   <br>
                                                   <div class="form-outline">
                                                   <input type="text" id="natija2" name="natija2" class="form-control" />
-                                                  <label class="form-label" for="form13">5b-mashq natijalarini kiriting</label>                                             
+                                                  <label class="form-label" for="form13">5b-mashq natijalarini kiriting</label>
                                                   </div>
 
                                                   <br>
                                                   <div class="form-outline">
                                                   <input type="text" id="natija3" name="natija3" class="form-control" />
-                                                  <label class="form-label" for="form13">9-mashq natijalarini kiriting</label>                                             
+                                                  <label class="form-label" for="form13">9-mashq natijalarini kiriting</label>
                                                   </div>
 
                                                   <br>
                                                   <div class="form-outline">
                                                   <input type="text" id="natija4" name="natija4" class="form-control" />
                                                   <label class="form-label" for="form13">25-mashq natijalarini kiriting</label>
-                                                  </div>                                             
-                                                  
+                                                  </div>
+
                                              </div>
-                                        
+
                                              <div class="modal-footer">
                                                   <button type="submit" name="edit_data" class="btn btn-primary">Saqlash</button>
                                                   <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Qaytish</button>
@@ -255,7 +255,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                               <!-- Modal Create table Start-->
                               <div class="modal top fade" id="ModalCreateTable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
                                    <div class="modal-dialog  ">
-                                   <div class="modal-content">                                        
+                                   <div class="modal-content">
                                         <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Ro`yxatni shakllantirish</h5>
                                         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
@@ -263,79 +263,79 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                         <div class="modal-body">
                                              <div class="form-outline">
                                              <input type="text" id="form12" class="form-control" />
-                                             <label class="form-label" for="form12">Bo‘linmaning nomlanishi</label>                                             
+                                             <label class="form-label" for="form12">Bo‘linmaning nomlanishi</label>
                                              </div>
                                              <br>
                                              <div class="form-outline">
                                              <input type="text" id="form13" class="form-control" />
-                                             <label class="form-label" for="form13">Shaxsiy tarkib soni</label>                                             
+                                             <label class="form-label" for="form13">Shaxsiy tarkib soni</label>
                                              </div>
-                                                  
+
                                              <br>
                                              <div class="form-floating">
-                                                                                          
+
                                              <select id="select1" class="form-select">
                                                   <?php
                                                   while ($row = mysqli_fetch_array($result1)) {
-                                                  ?>                                          
+                                                  ?>
                                                   <option value="
                                                   <?= $row["mashqlar_id"] ?>">
                                                   <?php echo $row['mashq_nomi']; ?>
                                                   </option>
-                                                  <?php 
+                                                  <?php
                                                   }
-                                                  ?>                                                  
+                                                  ?>
                                              </select>
                                              <label for="select1">1-mashqni tanlang</label>
                                              </div>
-                                             
+
                                              <br>
-                                             <div class="form-floating">                                             
+                                             <div class="form-floating">
                                              <select id="select2" class="form-select">
                                              <?php
                                              while ($row = mysqli_fetch_array($result2)) {
-                                             ?>                                                    
+                                             ?>
                                                   <option value="
                                                   <?= $row["mashqlar_id"] ?>">
                                                   <?php echo $row['mashq_nomi']; ?>
                                                   </option>
-                                                  <?php 
+                                                  <?php
                                                   }
-                                                  ?>                                                  
+                                                  ?>
                                              </select>
                                              <label for="select2">2-mashqni tanlang</label>
                                              </div>
 
                                              <br>
-                                             <div class="form-floating">                                             
+                                             <div class="form-floating">
                                              <select id="select3" class="form-select">
                                              <?php
                                              while ($row = mysqli_fetch_array($result3)) {
-                                             ?>                                                    
+                                             ?>
                                                   <option value="
                                                   <?= $row["mashqlar_id"] ?>">
                                                   <?php echo $row['mashq_nomi']; ?>
                                                   </option>
-                                                  <?php 
+                                                  <?php
                                                   }
-                                                  ?>                                                  
+                                                  ?>
                                              </select>
                                              <label for="select3">3-mashqni tanlang</label>
                                              </div>
 
                                              <br>
-                                             <div class="form-floating">                                             
+                                             <div class="form-floating">
                                              <select id="select4" class="form-select">
                                              <?php
                                              while ($row = mysqli_fetch_array($result4)) {
-                                             ?>                                                    
+                                             ?>
                                                   <option value="
                                                   <?= $row["mashqlar_id"] ?>">
                                                   <?php echo $row['mashq_nomi']; ?>
                                                   </option>
-                                                  <?php 
+                                                  <?php
                                                   }
-                                                  ?>                                                  
+                                                  ?>
                                              </select>
                                              <label for="select4">4-mashqni tanlang</label>
                                              </div>
@@ -362,8 +362,8 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                              </div>
                                              <div class="modal-body">
                                                   <input type="hidden" name="delete_id" id="delete_id">
-                                                  <label for="" name="fish_delete" id="fish_delete"></label>
-                                                  <input type="text" name="fish_delete" id="fish_delete"> ma'lumotlarini o‘chirmoqchimisiz?
+                                                  <!-- <label for="" name="fish_delete" id="fish_delete"></label> -->
+                                                  Ushbu qator ma'lumotlarini o‘chirmoqchimisiz?
                                              </div>
                                              <div class="modal-footer">
                                              <button type="submit" name="delete_data" class="btn btn-danger">Ha</button>
@@ -381,7 +381,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                               <div class="modal top fade" id="ModalInsertNatija" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
                                    <div class="modal-dialog  ">
                                         <div class="modal-content">
-                                             <form id="Natijakiritish" method="post" action="insert_natija_data.php">                                        
+                                             <form id="Natijakiritish" method="post" action="insert_natija_data.php">
                                                   <div class="modal-header">
                                                        <h5 class="modal-title" id="exampleModalLabel">Natijalarni kiritish</h5>
                                                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
@@ -392,38 +392,38 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
 
                                                        <div class="form-outline">
                                                        <input type="text" name="input_fish" id="form12" class="form-control" />
-                                                       <label class="form-label" for="form12">F.I.SH</label>                                             
+                                                       <label class="form-label" for="form12">F.I.SH</label>
                                                        </div>
 
                                                        <br>
                                                        <div class="form-outline">
                                                        <input type="date" name="input_tugilgan_kuni"  id="datepicker" class="form-control" />
-                                                       <label class="form-label" for="date">Tug‘ilgan sanasi</label>                                             
+                                                       <label class="form-label" for="date">Tug‘ilgan sanasi</label>
                                                        </div>
 
                                                        <br>
                                                        <div class="form-outline">
                                                        <input type="text" name="input_natija1" id="form13" class="form-control" />
-                                                       <label class="form-label" for="form13">2-mashq natijalarini kiriting</label>                                             
+                                                       <label class="form-label" for="form13">2-mashq natijalarini kiriting</label>
                                                        </div>
 
                                                        <br>
                                                        <div class="form-outline">
                                                        <input type="text" name="input_natija2" id="form13" class="form-control" />
-                                                       <label class="form-label" for="form13">5b-mashq natijalarini kiriting</label>                                             
+                                                       <label class="form-label" for="form13">5b-mashq natijalarini kiriting</label>
                                                        </div>
 
                                                        <br>
                                                        <div class="form-outline">
                                                        <input type="text" name="input_natija3" id="form13" class="form-control" />
-                                                       <label class="form-label" for="form13">9-mashq natijalarini kiriting</label>                                             
+                                                       <label class="form-label" for="form13">9-mashq natijalarini kiriting</label>
                                                        </div>
 
                                                        <br>
                                                        <div class="form-outline">
                                                        <input type="text" name="input_natija4" id="form13" class="form-control" />
-                                                       <label class="form-label" for="form13">25-mashq natijalarini kiriting</label>                                             
-                                                       </div>                                                       
+                                                       <label class="form-label" for="form13">25-mashq natijalarini kiriting</label>
+                                                       </div>
                                                   </div>
                                                   <div class="modal-footer">
                                                        <button type="submit" class="btn btn-success" name="insertdata">Kiritish</button>
@@ -444,9 +444,9 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                              
-                                             PRO versiya ustida amaliy ishlar olib borilmoqda. Yaqin kunlar ichida ishga tushiramiz. 
-                                              
+
+                                             PRO versiya ustida amaliy ishlar olib borilmoqda. Yaqin kunlar ichida ishga tushiramiz.
+
                                         </div>
                                         <div class="modal-footer">
                                         <!-- <button type="button" class="btn btn-primary">Saqlash</button> -->
@@ -460,15 +460,15 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                               <!-- Modal Pro versiya End -->
 
 
-                         
+
                     </section>
                     </div>
                </section>
                <!-- </div> -->
-               
+
           </div>
      </main>
-     
+
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
      <script
      type="text/javascript"
@@ -482,7 +482,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
 
                 $('#ModalEdit').modal('show');
 
-                $tr = $(this).closest('tr');          
+                $tr = $(this).closest('tr');
 
                 var data = $tr.children("td").map(function () {
                     return $(this).text();
@@ -523,50 +523,10 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
         });
     </script>
 
-     <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>     
-     <script type="text/javascript">
-          $('#datatable').DataTable({});
-     </script> -->
-     <!-- <script type="text/javascript">
-          $(document).on('submit', '$Natijakiritish', function(event){
-               event.preventDefault();
-               var fish = $('#input_fish').val();
-               var tugilgan_kuni = $('#input_tugilgan_kuni').val();
-               var natija1 = $('#input_natija1').val();
-               var natija2 = $('#input_natija2').val();
-               var natija3 = $('#input_natija3').val();
-               var natija4 = $('#input_natija4').val();
-               if(fish !='' && tugilgan_kuni !='' && natija1 !='' && natija2 !='' && natija3 !='' && natija4 !='')
-               {
-                    $.ajax({
-                         url:"test_insert_data.php",
-                         data:{fish:fish,tugilgan_kuni:tugilgan_kuni,natija1:natija1,natija2:natija2,natija3:natija3,natija4:natija4},
-                         type:'post',
-                         success:function(data)
-                         {
-                              var json = JSON.parse(data);
-                              status json.status;
-                              if(status=='success')
-                              {
-                                   table = $('datatable').DataTable();
-                                   table.draw();
-                                   alert('Malumotlar muvofaqqiyatli yuklandi');
-
-                              }
-                         }
-                    });
-               }
-               else
-               {
-                    alert("Iltimos bo`sh kataklarni to`ldiring");
-               }
-
-          });
-     </script> -->
 </body>
 <footer class="bg-light text-center text-lg-start fixed-bottom">
 <!-- Copyright -->
-<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+<div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.025);">
 © 2023 Copyright:
 <a class="text-reset fw-bold" href="https://fizo.uz/">Fizo.uz</a>
 | Barcha huquqlar himoyalangan.
@@ -575,7 +535,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
 </footer>
 </html>
 
-<?php 
+<?php
 }else{
      header("Location: index.php");
      exit();
