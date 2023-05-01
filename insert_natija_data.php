@@ -12,27 +12,36 @@
         $natija4        = $_POST['input_natija4'];
 
         $yoshi = "SELECT TIMESTAMPDIFF(YEAR, '$tugilgan_kuni', curdate())";
-        if($yoshi < 28){
-          echo "28 dan kichik";
-        }
         $result = mysqli_query($conn, $yoshi);
         $row = mysqli_fetch_row($result);
-        echo $row[0];
+        // echo $row[0];
+        if($row[0] < 28){
+          $guruhi = "1guruh";
+        }
+        if($row[0] >= 28 && $row[0] < 33){
+          $guruhi = "2guruh";
+        }
+        if($row[0] >= 33 && $row[0] < 38){
+          $guruhi = "3guruh";
+        }
+        if($row[0] >= 38 && $row[0] < 43){
+          $guruhi = "4guruh";
+        }
+        if($row[0] >= 43 && $row[0] < 48){
+          $guruhi = "5guruh";
+        }
+        if($row[0] >= 48 && $row[0] < 53){
+          $guruhi = "6guruh";
+        }
 
-
-
-
-        $sql = "INSERT INTO `user401` (`fish`, `tugilgan_kuni`, `yoshi`, `natija1`, `natija2`, `natija3`, `natija4`)
-        VALUES ('$fish', '$tugilgan_kuni', ($yoshi), '$natija1', '$natija2', '$natija3', '$natija4')";
+        $sql = "INSERT INTO `user401` (`fish`, `tugilgan_kuni`, `yoshi`, `guruhi`, `natija1`, `natija2`, `natija3`, `natija4`)
+        VALUES ('$fish', '$tugilgan_kuni', ($yoshi), '$guruhi', '$natija1', '$natija2', '$natija3', '$natija4')";
         $res = mysqli_query($conn, $sql);
-        // echo gettype($res2);
-        // echo $res2;
-
 
         if ($res)
         {
             echo '<script> alert("Ma`lumotlar bazaga kiritildi"); </script>';
-            // header('Location: home.php');
+            header('Location: home.php');
         }
         else
         {

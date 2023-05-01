@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 20 2023 г., 15:11
--- Версия сервера: 10.4.18-MariaDB
--- Версия PHP: 8.0.5
+-- Время создания: Май 01 2023 г., 11:47
+-- Версия сервера: 10.4.28-MariaDB
+-- Версия PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,16 +54,16 @@ CREATE TABLE `1guruh` (
   `262-mashq` decimal(4,2) DEFAULT NULL,
   `27a-mashq` decimal(4,2) DEFAULT NULL,
   `31-mashq` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `1guruh`
 --
 
 INSERT INTO `1guruh` (`id`, `ball`, `1-mashq`, `2-mashq`, `3-mashq`, `4-mashq`, `5b-mashq`, `6a-mashq`, `7a-mashq`, `8a-mashq`, `9-mashq`, `10-mashq`, `131-mashq`, `132-mashq`, `141-mashq`, `142-mashq`, `143-mashq`, `144-mashq`, `16-mashq`, `23-mashq`, `251-mashq`, `252-mashq`, `261-mashq`, `262-mashq`, `27a-mashq`, `31-mashq`) VALUES
-(1, 1, '27.80', '15.40', '1.16', '4.14', '13.50', '24.00', '14.10', 44, 8, 4, 10, 8, 20, 26, 32, 40, '10.20', 6, '26.20', '58.20', '2.24', '3.30', '2.36', 38),
-(2, 2, '27.60', '15.30', '1.16', '4.10', '13.45', '23.50', '14.90', 44, 8, 4, 10, 8, 21, 27, 33, 41, '10.10', 6, '26.10', '58.10', '2.23', '3.25', '2.32', 39),
-(3, 3, '27.40', '15.20', '1.15', '4.06', '13.40', '23.40', '14.07', 45, 9, 4, 11, 9, 22, 28, 34, 42, '10.00', 7, '26.00', '58.00', '2.22', '3.22', '2.28', 40);
+(1, 1, 27.80, 15.40, 1.16, 4.14, 13.50, 24.00, 14.10, 44, 8, 4, 10, 8, 20, 26, 32, 40, 10.20, 6, 26.20, 58.20, 2.24, 3.30, 2.36, 38),
+(2, 2, 27.60, 15.30, 1.16, 4.10, 13.45, 23.50, 14.90, 44, 8, 4, 10, 8, 21, 27, 33, 41, 10.10, 6, 26.10, 58.10, 2.23, 3.25, 2.32, 39),
+(3, 3, 27.40, 15.20, 1.15, 4.06, 13.40, 23.40, 14.07, 45, 9, 4, 11, 9, 22, 28, 34, 42, 10.00, 7, 26.00, 58.00, 2.22, 3.22, 2.28, 40);
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,7 @@ CREATE TABLE `mashqlar` (
   `mashqlar_id` int(11) NOT NULL,
   `mashq_nomi` varchar(255) NOT NULL,
   `mashq_tuliq_nomi` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `mashqlar`
@@ -101,7 +101,7 @@ CREATE TABLE `user401` (
   `tugilgan_kuni` date DEFAULT NULL,
   `yoshi` int(11) DEFAULT NULL,
   `vazni` int(11) DEFAULT NULL,
-  `guruhi` int(11) DEFAULT NULL,
+  `guruhi` varchar(255) DEFAULT NULL,
   `natija1` decimal(4,2) DEFAULT NULL,
   `ball1` int(11) DEFAULT NULL,
   `natija2` decimal(4,2) DEFAULT NULL,
@@ -114,22 +114,29 @@ CREATE TABLE `user401` (
   `baho` int(11) DEFAULT NULL,
   `current_time` date NOT NULL DEFAULT current_timestamp(),
   `bolinma_nomi` varchar(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `user401`
 --
 
 INSERT INTO `user401` (`user_id`, `fish`, `tugilgan_kuni`, `yoshi`, `vazni`, `guruhi`, `natija1`, `ball1`, `natija2`, `ball2`, `natija3`, `ball3`, `natija4`, `ball4`, `umumiyball`, `baho`, `current_time`, `bolinma_nomi`) VALUES
-(1, 'Bo`riyev Quvonch Nurbekovich', '1994-05-12', 28, 75, 2, '13.62', 19, '11.50', 21, 20, 19, '22.50', 22, 81, 5, '2023-03-10', '401'),
-(2, '123', '2023-04-01', NULL, NULL, NULL, '2.00', NULL, '2.00', NULL, 2, NULL, '2.00', NULL, NULL, NULL, '2023-04-14', NULL),
-(3, 'buriyev', '2023-04-04', 0, NULL, NULL, '12.40', NULL, '11.20', NULL, 18, NULL, '13.31', NULL, NULL, NULL, '2023-04-14', NULL),
-(4, 'Ravshanov', '1988-11-17', 27, NULL, NULL, '12.10', NULL, '13.41', NULL, 17, NULL, '25.10', NULL, NULL, NULL, '2023-04-18', NULL),
-(5, 'Ulmas', '2020-03-10', 3, NULL, NULL, '12.10', NULL, '12.30', NULL, 11, NULL, '13.32', NULL, NULL, NULL, '2023-04-18', NULL),
-(6, 'Rizmatov', '1988-01-20', 35, NULL, NULL, '12.10', NULL, '12.00', NULL, 14, NULL, '22.10', NULL, NULL, NULL, '2023-04-19', NULL),
-(7, 'Tillayev', '2021-04-06', NULL, NULL, NULL, '12.10', NULL, '23.56', NULL, 18, NULL, '23.45', NULL, NULL, NULL, '2023-04-19', NULL),
-(8, 'Buronov', '2023-04-08', 0, NULL, NULL, '12.40', NULL, '11.20', NULL, 15, NULL, '13.30', NULL, NULL, NULL, '2023-04-19', NULL),
-(9, 'Buronov', '1986-05-15', 36, NULL, NULL, '12.40', NULL, '12.00', NULL, 17, NULL, '12.10', NULL, NULL, NULL, '2023-04-19', NULL);
+(1, 'Bo`riyev Quvonch Nurbekovich', '1994-05-12', 28, 75, '2', 13.62, 19, 11.50, 21, 20, 19, 22.50, 22, 81, 5, '2023-03-10', '401'),
+(2, '123', '2023-04-01', NULL, NULL, NULL, 2.00, NULL, 2.00, NULL, 2, NULL, 2.00, NULL, NULL, NULL, '2023-04-14', NULL),
+(3, 'buriyev', '2023-04-04', 0, NULL, NULL, 12.40, NULL, 11.20, NULL, 18, NULL, 13.31, NULL, NULL, NULL, '2023-04-14', NULL),
+(4, 'Ravshanov', '1988-11-17', 27, NULL, NULL, 12.10, NULL, 13.41, NULL, 17, NULL, 25.10, NULL, NULL, NULL, '2023-04-18', NULL),
+(5, 'Ulmas', '2020-03-10', 3, NULL, NULL, 12.10, NULL, 12.30, NULL, 11, NULL, 13.32, NULL, NULL, NULL, '2023-04-18', NULL),
+(6, 'Rizmatov', '1988-01-20', 35, NULL, NULL, 12.10, NULL, 12.00, NULL, 14, NULL, 22.10, NULL, NULL, NULL, '2023-04-19', NULL),
+(7, 'Tillayev', '2021-04-06', NULL, NULL, NULL, 12.10, NULL, 23.56, NULL, 18, NULL, 23.45, NULL, NULL, NULL, '2023-04-19', NULL),
+(8, 'Buronov', '2023-04-08', 0, NULL, NULL, 12.40, NULL, 11.20, NULL, 15, NULL, 13.30, NULL, NULL, NULL, '2023-04-19', NULL),
+(9, 'Buronov', '1986-05-15', 36, NULL, NULL, 12.40, NULL, 12.00, NULL, 17, NULL, 12.10, NULL, NULL, NULL, '2023-04-19', NULL),
+(10, 'Zayniddinov Ikrom Mannopovich', '1995-09-12', 27, NULL, NULL, 12.10, NULL, 13.30, NULL, 18, NULL, 22.10, NULL, NULL, NULL, '2023-05-01', NULL),
+(15, 'ddfdf', '2002-02-12', 21, NULL, '1', 12.00, NULL, 12.00, NULL, 12, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
+(16, 'ddfdf', '2002-02-12', 21, NULL, '1guruh', 12.00, NULL, 12.00, NULL, 12, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
+(17, 'ddfdf', '1991-10-16', 31, NULL, '2guruh', 12.00, NULL, 12.00, NULL, 12, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
+(18, 'ddfdf', '1989-10-16', 33, NULL, '3guruh', 12.00, NULL, 12.00, NULL, 12, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
+(19, 'dfas', '1988-04-12', 35, NULL, '3guruh', 12.00, NULL, 11.00, NULL, 13, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
+(20, '4123', '1980-03-12', 43, NULL, '5guruh', 12.00, NULL, 12.00, NULL, 34, NULL, 11.00, NULL, NULL, NULL, '2023-05-01', NULL);
 
 -- --------------------------------------------------------
 
@@ -141,7 +148,7 @@ CREATE TABLE `userbolinma` (
   `userbolinma_id` int(11) NOT NULL,
   `bolinma_nomi` varchar(255) NOT NULL,
   `yaratilgan_vaqti` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `userbolinma`
@@ -161,7 +168,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `users`
@@ -183,7 +190,7 @@ CREATE TABLE `yoshguruh` (
   `id` int(11) NOT NULL,
   `yoshi` int(11) NOT NULL,
   `guruhi` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `yoshguruh`
@@ -258,7 +265,7 @@ ALTER TABLE `mashqlar`
 -- AUTO_INCREMENT для таблицы `user401`
 --
 ALTER TABLE `user401`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `userbolinma`
