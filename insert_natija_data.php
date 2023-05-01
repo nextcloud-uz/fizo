@@ -33,7 +33,7 @@
         if($row[0] >= 48 && $row[0] < 53){
           $guruhi = "6guruh";
         }
-
+        // natija1 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish
         if(empty($natija1) === true){
           $ball1 = 0;
         }
@@ -42,19 +42,68 @@
           $result_ball1 = mysqli_query($conn, $ball1);
           $row_ball1 = mysqli_fetch_row($result_ball1);
           $ball1 = $row_ball1[0];
-          echo $row_ball1[0];
         }
 
-        
+        // natija2 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish
+        if(empty($natija2) === true){
+          $ball1 = 0;
+        }
+        else{
+          $ball2 = "SELECT ball FROM `$guruhi` WHERE `5b-mashq` >= '$natija2' ORDER BY id DESC limit 1";
+          $result_ball2 = mysqli_query($conn, $ball2);
+          $row_ball2 = mysqli_fetch_row($result_ball2);
+          $ball2 = $row_ball2[0];
+        }
 
-        $sql = "INSERT INTO `user401` (`fish`, `tugilgan_kuni`, `yoshi`, `guruhi`, `natija1`, `ball1`, `natija2`, `natija3`, `natija4`)
-        VALUES ('$fish', '$tugilgan_kuni', ($yoshi), '$guruhi', '$natija1', '$ball1', '$natija2', '$natija3', '$natija4')";
+        // natija3 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish
+        if(empty($natija3) === true){
+          $ball3 = 0;
+        }
+        else{
+          $ball3 = "SELECT ball FROM `$guruhi` WHERE `2-mashq` >= '$natija3' ORDER BY id DESC limit 1";
+          $result_ball3 = mysqli_query($conn, $ball3);
+          $row_ball3 = mysqli_fetch_row($result_ball3);
+          $ball3 = $row_ball3[0];
+        }
+
+        // natija4 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish
+        if(empty($natija4) === true){
+          $ball4 = 0;
+        }
+        else{
+          $ball4 = "SELECT ball FROM `$guruhi` WHERE `2-mashq` >= '$natija4' ORDER BY id DESC limit 1";
+          $result_ball4 = mysqli_query($conn, $ball4);
+          $row_ball4 = mysqli_fetch_row($result_ball4);
+          $ball4 = $row_ball4[0];
+        }
+
+        // Umumiy ballni hisoblash va o`zgaruvchiga yozish
+        $umumiyball = $ball1 + $ball2 + $ball3 + $ball4;
+        echo $umumiyball;
+
+        // Bahoni chiqarish va o`zgaruvchiga yozish
+        if($umumiyball > 80){
+          $baho = 5;
+        }
+        if($umumiyball > 70 && $umumiyball < 80){
+          $baho = 4;
+        }
+        if($umumiyball > 60 && $umumiyball < 70){
+          $baho = 3;
+        }
+        if($umumiyball < 50){
+          $baho = 2;
+        }
+
+        // Barcha var larni bazaga kiritish
+        $sql = "INSERT INTO `user401` (`fish`, `tugilgan_kuni`, `yoshi`, `guruhi`, `natija1`, `ball1`, `natija2`, `ball2`, `natija3`, `ball3`, `natija4`, `ball4`, `umumiyball`, `baho`)
+        VALUES ('$fish', '$tugilgan_kuni', ($yoshi), '$guruhi', '$natija1', '$ball1', '$natija2', '$ball2', '$natija3', '$ball3', '$natija4', '$ball4', '$umumiyball', '$baho')";
         $res = mysqli_query($conn, $sql);
 
         if ($res)
         {
             echo '<script> alert("Ma`lumotlar bazaga kiritildi"); </script>';
-            header('Location: home.php');
+            // header('Location: home.php');
         }
         else
         {

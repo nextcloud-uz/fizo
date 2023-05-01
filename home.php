@@ -118,13 +118,13 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                <li class="mb-1"><i class="fas fa-check-circle me-2 text-success"></i>Uchinchi navbatda jismoniy tayyorgarlikdan egallangan natijalarni kerakli qatorlarga kiriting</li>
                </ul>
 
-               <p class="text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolore natus officiis, laudantium ab alias, ad nihil sint debitis exercitationem ea accusantium odit, doloribus quibusdam at optio porro recusandae necessitatibus.</p>
+               <!-- <p class="text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolore natus officiis, laudantium ab alias, ad nihil sint debitis exercitationem ea accusantium odit, doloribus quibusdam at optio porro recusandae necessitatibus.</p> -->
                <!-- <table border="1" cellspacing="0" width="800" align="center"> -->
                <!-- <div class="table-responsive-sm"> -->
                <section class="pb-4">
                     <div class="bg-white border rounded-2">
-                    <button type="button" class="btn btn-outline-success m-2" data-mdb-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalInsertNatija">Natijalarni kiritish<i class="fas fa-plus-circle ms-2"></i></button>
-                    <button type="button" class="btn btn-outline-primary m-2" data-mdb-ripple-color="dark">Exceldagi natijalarni yuklash<i class="fas fa-download ms-2"></i></button>
+                    <button type="button" class="btn btn-outline-success m-2" data-mdb-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalInsertNatija"><i class="fas fa-plus-circle me-2"></i>Natijalarni kiritish</button>
+                    <button type="button" class="btn btn-outline-primary m-2" data-mdb-ripple-color="dark"><i class="fas fa-download me-2"></i>Exceldagi natijalarni yuklash</button>
                     <section class="w-100 p-2 text-center table-responsive">
 
                          <table id="datatable" class="table table-bordered">
@@ -146,7 +146,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                              <th rowspan="3">T/R</th>
                                              <th rowspan="3">F.I.SH</th>
                                              <th colspan="8">Mashqlar nomlanishi</th>
-                                             <th rowspan="3">Umumiy ball</th>
+                                             <th rowspan="3">Umumiy <br> ball</th>
                                              <th rowspan="3">Baho</th>
                                              <th rowspan="3">Amallar</th>
                                         </tr>
@@ -184,7 +184,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                              <td><?php echo $row['natija4']; ?></td>
                                              <td><?php echo $row['ball4']; ?></td>
                                              <td><p class="ball aloball"><?php echo $row['umumiyball']; ?></p></td>
-                                             <td><?php echo $row['baho']; ?></td>
+                                             <td><p class="baho baho5"><?php echo $row['baho']; ?></p></td>
                                              <td>
                                                   <button type="button" class="btn btn-secondary editbtn btn-sm px-3" data-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalEdit">
                                                   <i class="fas fa-pen"></i>
