@@ -1,6 +1,5 @@
 <?php
-    include_once 'db_conn.php';
-    // $db = mysqli_query($conn,'fizo');   
+    include_once 'db_conn.php'; 
 
     if(isset($_POST['delete_data']))
     {

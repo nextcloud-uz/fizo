@@ -134,7 +134,9 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                         <?php
                                         while ($row = mysqli_fetch_array($resuserbolinma)) {
                                         ?>
-                                             <th colspan="14"><?php echo $row['bolinma_nomi']; ?></th>
+                                             <th colspan="14">
+                                                  <p class="bolinma_nomi"><?php echo $row['bolinma_nomi']; ?></p>
+                                             </th>
                                         <?php
                                         }
                                         ?>
@@ -445,7 +447,8 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                         </div>
                                         <div class="modal-body">
 
-                                             PRO versiya ustida amaliy ishlar olib borilmoqda. Yaqin kunlar ichida ishga tushiramiz.
+                                             PRO versiya ustida amaliy ishlar olib borilmoqda. <br>
+                                             Yaqin kunlar ichida ishga tushadi.
 
                                         </div>
                                         <div class="modal-footer">

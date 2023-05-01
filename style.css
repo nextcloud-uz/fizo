@@ -75,6 +75,12 @@ button.btn.btn-outline-secondary.soat {
   padding: 4px 10px 4px;
 }
 
+p.bolinma_nomi {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
 p.ball.aloball {
   color: #14A44D;
   /* color: #3B71CA; */

@@ -34,11 +34,18 @@
           $guruhi = "6guruh";
         }
 
-        $ball1 = "SELECT ball FROM `$guruhi` WHERE `2-mashq` >= '$natija1' ORDER BY id DESC limit 1";
-        $result_ball1 = mysqli_query($conn, $ball1);
-        $row_ball1 = mysqli_fetch_row($result_ball1);
-        $ball1 = $row_ball1[0];
-        echo $row_ball1[0];
+        if(empty($natija1) === true){
+          $ball1 = 0;
+        }
+        else{
+          $ball1 = "SELECT ball FROM `$guruhi` WHERE `2-mashq` >= '$natija1' ORDER BY id DESC limit 1";
+          $result_ball1 = mysqli_query($conn, $ball1);
+          $row_ball1 = mysqli_fetch_row($result_ball1);
+          $ball1 = $row_ball1[0];
+          echo $row_ball1[0];
+        }
+
+        
 
         $sql = "INSERT INTO `user401` (`fish`, `tugilgan_kuni`, `yoshi`, `guruhi`, `natija1`, `ball1`, `natija2`, `natija3`, `natija4`)
         VALUES ('$fish', '$tugilgan_kuni', ($yoshi), '$guruhi', '$natija1', '$ball1', '$natija2', '$natija3', '$natija4')";
@@ -47,7 +54,7 @@
         if ($res)
         {
             echo '<script> alert("Ma`lumotlar bazaga kiritildi"); </script>';
-            // header('Location: home.php');
+            header('Location: home.php');
         }
         else
         {
