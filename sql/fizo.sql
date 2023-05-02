@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 01 2023 г., 11:47
+-- Время создания: Май 02 2023 г., 11:06
 -- Версия сервера: 10.4.28-MariaDB
 -- Версия PHP: 8.2.4
 
@@ -122,21 +122,7 @@ CREATE TABLE `user401` (
 
 INSERT INTO `user401` (`user_id`, `fish`, `tugilgan_kuni`, `yoshi`, `vazni`, `guruhi`, `natija1`, `ball1`, `natija2`, `ball2`, `natija3`, `ball3`, `natija4`, `ball4`, `umumiyball`, `baho`, `current_time`, `bolinma_nomi`) VALUES
 (1, 'Bo`riyev Quvonch Nurbekovich', '1994-05-12', 28, 75, '2', 13.62, 19, 11.50, 21, 20, 19, 22.50, 22, 81, 5, '2023-03-10', '401'),
-(2, '123', '2023-04-01', NULL, NULL, NULL, 2.00, NULL, 2.00, NULL, 2, NULL, 2.00, NULL, NULL, NULL, '2023-04-14', NULL),
-(3, 'buriyev', '2023-04-04', 0, NULL, NULL, 12.40, NULL, 11.20, NULL, 18, NULL, 13.31, NULL, NULL, NULL, '2023-04-14', NULL),
-(4, 'Ravshanov', '1988-11-17', 27, NULL, NULL, 12.10, NULL, 13.41, NULL, 17, NULL, 25.10, NULL, NULL, NULL, '2023-04-18', NULL),
-(5, 'Ulmas', '2020-03-10', 3, NULL, NULL, 12.10, NULL, 12.30, NULL, 11, NULL, 13.32, NULL, NULL, NULL, '2023-04-18', NULL),
-(6, 'Rizmatov', '1988-01-20', 35, NULL, NULL, 12.10, NULL, 12.00, NULL, 14, NULL, 22.10, NULL, NULL, NULL, '2023-04-19', NULL),
-(7, 'Tillayev', '2021-04-06', NULL, NULL, NULL, 12.10, NULL, 23.56, NULL, 18, NULL, 23.45, NULL, NULL, NULL, '2023-04-19', NULL),
-(8, 'Buronov', '2023-04-08', 0, NULL, NULL, 12.40, NULL, 11.20, NULL, 15, NULL, 13.30, NULL, NULL, NULL, '2023-04-19', NULL),
-(9, 'Buronov', '1986-05-15', 36, NULL, NULL, 12.40, NULL, 12.00, NULL, 17, NULL, 12.10, NULL, NULL, NULL, '2023-04-19', NULL),
-(10, 'Zayniddinov Ikrom Mannopovich', '1995-09-12', 27, NULL, NULL, 12.10, NULL, 13.30, NULL, 18, NULL, 22.10, NULL, NULL, NULL, '2023-05-01', NULL),
-(15, 'ddfdf', '2002-02-12', 21, NULL, '1', 12.00, NULL, 12.00, NULL, 12, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
-(16, 'ddfdf', '2002-02-12', 21, NULL, '1guruh', 12.00, NULL, 12.00, NULL, 12, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
-(17, 'ddfdf', '1991-10-16', 31, NULL, '2guruh', 12.00, NULL, 12.00, NULL, 12, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
-(18, 'ddfdf', '1989-10-16', 33, NULL, '3guruh', 12.00, NULL, 12.00, NULL, 12, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
-(19, 'dfas', '1988-04-12', 35, NULL, '3guruh', 12.00, NULL, 11.00, NULL, 13, NULL, 12.00, NULL, NULL, NULL, '2023-05-01', NULL),
-(20, '4123', '1980-03-12', 43, NULL, '5guruh', 12.00, NULL, 12.00, NULL, 34, NULL, 11.00, NULL, NULL, NULL, '2023-05-01', NULL);
+(2, 'Yadgarov Elbek', '1999-09-23', 23, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-02', NULL);
 
 -- --------------------------------------------------------
 
@@ -167,18 +153,23 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `bolinmanomi` varchar(255) DEFAULT NULL,
+  `1-mashq` varchar(255) DEFAULT NULL,
+  `2-mashq` varchar(255) DEFAULT NULL,
+  `3-mashq` varchar(255) DEFAULT NULL,
+  `4-mashq` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `name`) VALUES
-(8, '1111', 'b59c67bf196a4758191e42f76670ceba', '1111'),
-(9, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(10, 'ILYA', '26c509535026fc01418a8dd812cc2cc6', 'ILYA'),
-(11, 'Salom', '4be1041e508b1bcadd666d5170a4bfce', 'Salom');
+INSERT INTO `users` (`id`, `username`, `password`, `name`, `bolinmanomi`, `1-mashq`, `2-mashq`, `3-mashq`, `4-mashq`) VALUES
+(8, '1111', 'b59c67bf196a4758191e42f76670ceba', '1111', NULL, NULL, NULL, NULL, NULL),
+(9, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '401', '2-mashq', '5b-mashq', '9-mashq', '251-mashq'),
+(10, 'ILYA', '26c509535026fc01418a8dd812cc2cc6', 'ILYA', NULL, NULL, NULL, NULL, NULL),
+(11, 'Salom', '4be1041e508b1bcadd666d5170a4bfce', 'Salom', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -265,7 +256,7 @@ ALTER TABLE `mashqlar`
 -- AUTO_INCREMENT для таблицы `user401`
 --
 ALTER TABLE `user401`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `userbolinma`

@@ -71,7 +71,7 @@
           $ball4 = 0;
         }
         else{
-          $ball4 = "SELECT ball FROM `$guruhi` WHERE `25-mashq` >= '$natija4' ORDER BY id DESC limit 1";
+          $ball4 = "SELECT ball FROM `$guruhi` WHERE `251-mashq` >= '$natija4' ORDER BY id DESC limit 1";
           $result_ball4 = mysqli_query($conn, $ball4);
           $row_ball4 = mysqli_fetch_row($result_ball4);
           $ball4 = $row_ball4[0];

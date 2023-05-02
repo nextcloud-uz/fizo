@@ -5,11 +5,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 
 include 'db_conn.php';
 $result1 = mysqli_query($conn, "SELECT * FROM mashqlar");
-$result2 = mysqli_query($conn, "SELECT * FROM mashqlar");
-$result3 = mysqli_query($conn, "SELECT * FROM mashqlar");
-$result4 = mysqli_query($conn, "SELECT * FROM mashqlar");
+// $result2 = mysqli_query($conn, "SELECT * FROM users");
+// $result3 = mysqli_query($conn, "SELECT * FROM mashqlar");
+// $result4 = mysqli_query($conn, "SELECT * FROM mashqlar");
 $resuser401 = mysqli_query($conn, "SELECT * FROM user401");
 $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
+
+$res_bolinmanomi = mysqli_query($conn, "SELECT bolinmanomi FROM users WHERE `id` =".$_SESSION['id']);
+$row_bolinmanomi = mysqli_fetch_row($res_bolinmanomi);
+$bolinmanomi = $row_bolinmanomi[0];
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -77,7 +82,6 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                                    <span class="soat" id="seconds">00</span>
                                    <!-- Soat tugashi -->
                               </button>
-                              <button type="button" class="btn btn-success bg-gradient" data-mdb-toggle="modal" data-mdb-target="#ModalCreateTable"><i class="fas fa-plus-circle me-2"></i>Ro`yxat tuzish</button>
                               <button type="button" class="btn btn-primary bg-gradient ms-1">
                               <a href="logout.php" class="chiqish">Chiqish</a>
                               </button>
@@ -123,6 +127,116 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                <!-- <div class="table-responsive-sm"> -->
                <section class="pb-4">
                     <div class="bg-white border rounded-2">
+                    <?php
+                    if(empty($bolinmanomi) === true){
+                    ?>
+                    <!-- Agar bo`linma nomi kiritilmagan bo`lsa ushbu qator ishlaydi. Ya'ni jadval tuzilmagan bo`lsa -->
+                    <div class="d-flex justify-content-center dobavit">
+                      <button type="button" class="btn btn-success bg-gradient" data-mdb-toggle="modal" data-mdb-target="#ModalCreateTable"><i class="fas fa-plus-circle me-2"></i>Ro`yxat tuzish</button>
+                      <!-- Modal Create table Start-->
+                      <div class="modal top fade" id="ModalCreateTable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+                           <div class="modal-dialog  ">
+                           <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ro`yxatni shakllantirish</h5>
+                                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                     <div class="form-outline">
+                                     <input type="text" id="form12" class="form-control" />
+                                     <label class="form-label" for="form12">Bo‘linmaning nomlanishi</label>
+                                     </div>
+                                     <br>
+                                     <div class="form-outline">
+                                     <input type="text" id="form13" class="form-control" />
+                                     <label class="form-label" for="form13">Shaxsiy tarkib soni</label>
+                                     </div>
+
+                                     <br>
+                                     <div class="form-floating">
+
+                                     <select id="select1" class="form-select">
+                                          <?php
+                                          while ($row = mysqli_fetch_array($result1)) {
+                                          ?>
+                                          <option value="
+                                          <?= $row["mashqlar_id"] ?>">
+                                          <?php echo $row['mashq_nomi']; ?>
+                                          </option>
+                                          <?php
+                                          }
+                                          ?>
+                                     </select>
+                                     <label for="select1">1-mashqni tanlang</label>
+                                     </div>
+
+                                     <br>
+                                     <div class="form-floating">
+                                     <select id="select2" class="form-select">
+                                     <?php
+                                     while ($row = mysqli_fetch_array($result2)) {
+                                     ?>
+                                          <option value="
+                                          <?= $row["mashqlar_id"] ?>">
+                                          <?php echo $row['mashq_nomi']; ?>
+                                          </option>
+                                          <?php
+                                          }
+                                          ?>
+                                     </select>
+                                     <label for="select2">2-mashqni tanlang</label>
+                                     </div>
+
+                                     <br>
+                                     <div class="form-floating">
+                                     <select id="select3" class="form-select">
+                                     <?php
+                                     while ($row = mysqli_fetch_array($result3)) {
+                                     ?>
+                                          <option value="
+                                          <?= $row["mashqlar_id"] ?>">
+                                          <?php echo $row['mashq_nomi']; ?>
+                                          </option>
+                                          <?php
+                                          }
+                                          ?>
+                                     </select>
+                                     <label for="select3">3-mashqni tanlang</label>
+                                     </div>
+
+                                     <br>
+                                     <div class="form-floating">
+                                     <select id="select4" class="form-select">
+                                     <?php
+                                     while ($row = mysqli_fetch_array($result4)) {
+                                     ?>
+                                          <option value="
+                                          <?= $row["mashqlar_id"] ?>">
+                                          <?php echo $row['mashq_nomi']; ?>
+                                          </option>
+                                          <?php
+                                          }
+                                          ?>
+                                     </select>
+                                     <label for="select4">4-mashqni tanlang</label>
+                                     </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Yaratish</button>
+                                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                                     Qaytish
+                                </button>
+                                </div>
+                           </div>
+                           </div>
+                      </div>
+                      <!-- Modal Create table End -->
+                    </div>
+
+                    <?php
+                    } else {
+                    ?>
+
                     <button type="button" class="btn btn-outline-success m-2" data-mdb-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalInsertNatija"><i class="fas fa-plus-circle me-2"></i>Natijalarni kiritish</button>
                     <button type="button" class="btn btn-outline-primary m-2" data-mdb-ripple-color="dark"><i class="fas fa-download me-2"></i>Exceldagi natijalarni yuklash</button>
                     <section class="w-100 p-2 text-center table-responsive">
@@ -254,104 +368,7 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
                               </div>
                               <!-- Modal Edit data End -->
 
-                              <!-- Modal Create table Start-->
-                              <div class="modal top fade" id="ModalCreateTable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
-                                   <div class="modal-dialog  ">
-                                   <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Ro`yxatni shakllantirish</h5>
-                                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                             <div class="form-outline">
-                                             <input type="text" id="form12" class="form-control" />
-                                             <label class="form-label" for="form12">Bo‘linmaning nomlanishi</label>
-                                             </div>
-                                             <br>
-                                             <div class="form-outline">
-                                             <input type="text" id="form13" class="form-control" />
-                                             <label class="form-label" for="form13">Shaxsiy tarkib soni</label>
-                                             </div>
 
-                                             <br>
-                                             <div class="form-floating">
-
-                                             <select id="select1" class="form-select">
-                                                  <?php
-                                                  while ($row = mysqli_fetch_array($result1)) {
-                                                  ?>
-                                                  <option value="
-                                                  <?= $row["mashqlar_id"] ?>">
-                                                  <?php echo $row['mashq_nomi']; ?>
-                                                  </option>
-                                                  <?php
-                                                  }
-                                                  ?>
-                                             </select>
-                                             <label for="select1">1-mashqni tanlang</label>
-                                             </div>
-
-                                             <br>
-                                             <div class="form-floating">
-                                             <select id="select2" class="form-select">
-                                             <?php
-                                             while ($row = mysqli_fetch_array($result2)) {
-                                             ?>
-                                                  <option value="
-                                                  <?= $row["mashqlar_id"] ?>">
-                                                  <?php echo $row['mashq_nomi']; ?>
-                                                  </option>
-                                                  <?php
-                                                  }
-                                                  ?>
-                                             </select>
-                                             <label for="select2">2-mashqni tanlang</label>
-                                             </div>
-
-                                             <br>
-                                             <div class="form-floating">
-                                             <select id="select3" class="form-select">
-                                             <?php
-                                             while ($row = mysqli_fetch_array($result3)) {
-                                             ?>
-                                                  <option value="
-                                                  <?= $row["mashqlar_id"] ?>">
-                                                  <?php echo $row['mashq_nomi']; ?>
-                                                  </option>
-                                                  <?php
-                                                  }
-                                                  ?>
-                                             </select>
-                                             <label for="select3">3-mashqni tanlang</label>
-                                             </div>
-
-                                             <br>
-                                             <div class="form-floating">
-                                             <select id="select4" class="form-select">
-                                             <?php
-                                             while ($row = mysqli_fetch_array($result4)) {
-                                             ?>
-                                                  <option value="
-                                                  <?= $row["mashqlar_id"] ?>">
-                                                  <?php echo $row['mashq_nomi']; ?>
-                                                  </option>
-                                                  <?php
-                                                  }
-                                                  ?>
-                                             </select>
-                                             <label for="select4">4-mashqni tanlang</label>
-                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Yaratish</button>
-                                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                                             Qaytish
-                                        </button>
-                                        </div>
-                                   </div>
-                                   </div>
-                              </div>
-                              <!-- Modal Create table End -->
 
                               <!-- Modal Delete data Start -->
                               <div class="modal top fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
@@ -466,6 +483,12 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
 
                     </section>
                     </div>
+
+                    <?php
+                    }
+                     ?>
+
+
                </section>
                <!-- </div> -->
 
