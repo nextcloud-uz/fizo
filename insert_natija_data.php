@@ -60,7 +60,7 @@
           $ball3 = 0;
         }
         else{
-          $ball3 = "SELECT ball FROM `$guruhi` WHERE `2-mashq` >= '$natija3' ORDER BY id DESC limit 1";
+          $ball3 = "SELECT ball FROM `$guruhi` WHERE `9-mashq` >= '$natija3' ORDER BY id DESC limit 1";
           $result_ball3 = mysqli_query($conn, $ball3);
           $row_ball3 = mysqli_fetch_row($result_ball3);
           $ball3 = $row_ball3[0];
@@ -71,7 +71,7 @@
           $ball4 = 0;
         }
         else{
-          $ball4 = "SELECT ball FROM `$guruhi` WHERE `2-mashq` >= '$natija4' ORDER BY id DESC limit 1";
+          $ball4 = "SELECT ball FROM `$guruhi` WHERE `25-mashq` >= '$natija4' ORDER BY id DESC limit 1";
           $result_ball4 = mysqli_query($conn, $ball4);
           $row_ball4 = mysqli_fetch_row($result_ball4);
           $ball4 = $row_ball4[0];
@@ -103,7 +103,7 @@
         if ($res)
         {
             echo '<script> alert("Ma`lumotlar bazaga kiritildi"); </script>';
-            // header('Location: home.php');
+            header('Location: home.php');
         }
         else
         {
@@ -112,6 +112,28 @@
     }
 
 ?>
+
+<!-- CREATE TABLE `user401` ( `user_id` int(11) NOT NULL, `fish` varchar(255) DEFAULT NULL, `tugilgan_kuni` date DEFAULT NULL, `yoshi` int(11) DEFAULT NULL, `vazni` int(11) DEFAULT NULL, `guruhi` varchar(255) DEFAULT NULL, `natija1` decimal(4,2) DEFAULT NULL, `ball1` int(11) DEFAULT NULL, `natija2` decimal(4,2) DEFAULT NULL, `ball2` int(11) DEFAULT NULL, `natija3` int(11) DEFAULT NULL, `ball3` int(11) DEFAULT NULL, `natija4` decimal(4,2) DEFAULT NULL, `ball4` int(11) DEFAULT NULL, `umumiyball` int(11) DEFAULT NULL, `baho` int(11) DEFAULT NULL, `current_time` date NOT NULL DEFAULT current_timestamp(), `bolinma_nomi` varchar(11) DEFAULT NULL ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci; -->
+
+<!-- CREATE TABLE Person (
+    `PersonID`      INTEGER NOT NULL PRIMARY KEY,
+    `LastName`      VARCHAR(80),
+    `FirstName`     VARCHAR(80),
+    `Address`       TEXT,
+    `City`          VARCHAR(100)
+) Engine=InnoDB; -->
+
+<!-- CREATE TABLE Person (
+    PersonID     INT UNSIGNED NOT NULL PRIMARY KEY,
+    LastName     VARCHAR(66) NOT NULL,
+    FirstName    VARCHAR(66),
+    Address      VARCHAR(255),
+    City         VARCHAR(66)
+); -->
+
+
+
+
 <!-- SELECT `COLUMN_NAME`
 FROM `INFORMATION_SCHEMA`.`COLUMNS`
 WHERE `TABLE_SCHEMA`='yourdatabasename'
