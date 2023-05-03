@@ -104,8 +104,19 @@ form.sign-in-form {
   z-index: 2;
 }
 
+p.royxat{
+  margin: 0;
+}
+
+/* div.divroyxat{
+  margin: 0.8rem;
+} */
+
 div.d-flex.justify-content-center.dobavit{
-  padding: 25px;
+  /* padding: 25px; */
+  /* margin-bottom: 0.8rem; */
+  /* background: rgb(121,121,121);
+background: linear-gradient(27deg, rgba(121,121,121,0.07326680672268904) 0%, rgba(255,255,255,1) 86%); */
 }
 
 .title {

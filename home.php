@@ -5,9 +5,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 
 include 'db_conn.php';
 $result1 = mysqli_query($conn, "SELECT * FROM mashqlar");
-// $result2 = mysqli_query($conn, "SELECT * FROM users");
-// $result3 = mysqli_query($conn, "SELECT * FROM mashqlar");
-// $result4 = mysqli_query($conn, "SELECT * FROM mashqlar");
+$result2 = mysqli_query($conn, "SELECT * FROM mashqlar");
+$result3 = mysqli_query($conn, "SELECT * FROM mashqlar");
+$result4 = mysqli_query($conn, "SELECT * FROM mashqlar");
 $resuser401 = mysqli_query($conn, "SELECT * FROM user401");
 $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
 
@@ -28,14 +28,21 @@ $bolinmanomi = $row_bolinmanomi[0];
      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" /> -->
      <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css" /> -->
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
      <!-- Google Fonts -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> -->
      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
      <!-- MDB -->
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
+     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" /> -->
      <link rel="stylesheet" href="css/mdb.min.css" />
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <!-- <script
+     type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
+     ></script> -->
 
 
 </head>
@@ -82,6 +89,9 @@ $bolinmanomi = $row_bolinmanomi[0];
                                    <span class="soat" id="seconds">00</span>
                                    <!-- Soat tugashi -->
                               </button>
+                              <!-- <div class="d-flex justify-content-center dobavit"> -->
+
+                              <!-- </div> -->
                               <button type="button" class="btn btn-primary bg-gradient ms-1">
                               <a href="logout.php" class="chiqish">Chiqish</a>
                               </button>
@@ -122,17 +132,118 @@ $bolinmanomi = $row_bolinmanomi[0];
                <li class="mb-1"><i class="fas fa-check-circle me-2 text-success"></i>Uchinchi navbatda jismoniy tayyorgarlikdan egallangan natijalarni kerakli qatorlarga kiriting</li>
                </ul>
 
+
+
+
+
                <!-- <p class="text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolore natus officiis, laudantium ab alias, ad nihil sint debitis exercitationem ea accusantium odit, doloribus quibusdam at optio porro recusandae necessitatibus.</p> -->
                <!-- <table border="1" cellspacing="0" width="800" align="center"> -->
                <!-- <div class="table-responsive-sm"> -->
                <section class="pb-4">
-                    <div class="bg-white border rounded-2">
+                    <!-- <div class="bg-white border rounded-2"> -->
                     <?php
                     if(empty($bolinmanomi) === true){
                     ?>
                     <!-- Agar bo`linma nomi kiritilmagan bo`lsa ushbu qator ishlaydi. Ya'ni jadval tuzilmagan bo`lsa -->
-                    <div class="d-flex justify-content-center dobavit">
-                      <button type="button" class="btn btn-success bg-gradient" data-mdb-toggle="modal" data-mdb-target="#ModalCreateTable"><i class="fas fa-plus-circle me-2"></i>Ro`yxat tuzish</button>
+                    <!-- <div class="d-flex justify-content-center dobavit"> -->
+                      <div class="container divroyxat p-0">
+                        <div class="alert alert-success royxat">
+                          <div class="d-flex justify-content-center">
+                            <h4>Juda ham yaxshi!</h4>
+                          </div>
+
+                          <div class="d-flex justify-content-center dobavit">
+                            <p class="royxat">Siz tomondan ro‘yxat shakllantirilmagan. Ro‘yxat tuzamizmi?</p>
+                          </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-center dobavit">
+                              <button type="button" class="btn btn-success bg-gradient" data-bs-toggle="modal" data-bs-target="#ModalCreateTable">Ro'yxat tuzish</button>
+                            </div>
+
+                          </div>
+                        </div>
+
+                    <!-- </div> -->
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="ModalCreateTable" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Ro`yxatni shakllantirish</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="input-group mb-3">
+                              <input type="text" class="form-control" placeholder="Bo`linmaning nomlanishi" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                            <select class="form-select" aria-label="Default select example">
+                              <option selected>1-mashqni tanlang</option>
+                              <?php
+                              while ($row = mysqli_fetch_array($result1)) {
+                              ?>
+                              <option value="<?= $row["mashqlar_id"] ?>"><?php echo $row['mashq_nomi']; ?></option>
+                              <?php
+                              }
+                              ?>
+                            </select>
+
+                            <br>
+
+                            <select class="form-select" aria-label="Default select example">
+                              <option selected>2-mashqni tanlang</option>
+                              <?php
+                              while ($row = mysqli_fetch_array($result2)) {
+                              ?>
+                              <option value="<?= $row["mashqlar_id"] ?>"><?php echo $row['mashq_nomi']; ?></option>
+                              <?php
+                              }
+                              ?>
+                            </select>
+
+                            <br>
+
+                            <select class="form-select" aria-label="Default select example">
+                              <option selected>3-mashqni tanlang</option>
+                              <?php
+                              while ($row = mysqli_fetch_array($result3)) {
+                              ?>
+                              <option value="<?= $row["mashqlar_id"] ?>"><?php echo $row['mashq_nomi']; ?></option>
+                              <?php
+                              }
+                              ?>
+                            </select>
+
+                            <br>
+
+                            <select class="form-select" aria-label="Default select example">
+                              <option selected>4-mashqni tanlang</option>
+                              <?php
+                              while ($row = mysqli_fetch_array($result4)) {
+                              ?>
+                              <option value="<?= $row["mashqlar_id"] ?>"><?php echo $row['mashq_nomi']; ?></option>
+                              <?php
+                              }
+                              ?>
+                            </select>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Yaratish</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                 Qaytish
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
                       <!-- Modal Create table Start-->
                       <div class="modal top fade" id="ModalCreateTable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
                            <div class="modal-dialog  ">
@@ -143,12 +254,12 @@ $bolinmanomi = $row_bolinmanomi[0];
                                 </div>
                                 <div class="modal-body">
                                      <div class="form-outline">
-                                     <input type="text" id="form12" class="form-control" />
+                                     <input type="text" id="form99" class="form-control" />
                                      <label class="form-label" for="form12">Bo‘linmaning nomlanishi</label>
                                      </div>
                                      <br>
                                      <div class="form-outline">
-                                     <input type="text" id="form13" class="form-control" />
+                                     <input type="text" id="form99" class="form-control" />
                                      <label class="form-label" for="form13">Shaxsiy tarkib soni</label>
                                      </div>
 
@@ -236,12 +347,12 @@ $bolinmanomi = $row_bolinmanomi[0];
                     <?php
                     } else {
                     ?>
-
+                    <div class="bg-white border rounded-2">
                     <button type="button" class="btn btn-outline-success m-2" data-mdb-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalInsertNatija"><i class="fas fa-plus-circle me-2"></i>Natijalarni kiritish</button>
                     <button type="button" class="btn btn-outline-primary m-2" data-mdb-ripple-color="dark"><i class="fas fa-download me-2"></i>Exceldagi natijalarni yuklash</button>
                     <section class="w-100 p-2 text-center table-responsive">
 
-                         <table id="datatable" class="table table-bordered">
+                         <table id="datatable" class="table table-bordered m-0">
 
                                    <thead>
                                         <tr class="table-active">
@@ -316,7 +427,7 @@ $bolinmanomi = $row_bolinmanomi[0];
 
                               <!-- Modal Edit data Start-->
                               <div class="modal top fade" id="ModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
-                                   <div class="modal-dialog  ">
+                                   <div class="modal-dialog">
                                    <div class="modal-content">
                                         <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Tahrirlash</h5>
@@ -484,6 +595,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                     </section>
                     </div>
 
+
                     <?php
                     }
                      ?>
@@ -493,13 +605,18 @@ $bolinmanomi = $row_bolinmanomi[0];
                <!-- </div> -->
 
           </div>
+
+
+
      </main>
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     <script
-     type="text/javascript"
-     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
-     ></script>
+     <!-- <script type="text/javascript">
+       $('#btn2223').on('click', function(){
+         $('#ModalCreateTable').modal('show');
+       });
+     </script> -->
+
+
 
      <script>
         $(document).ready(function () {
