@@ -75,7 +75,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                               <a class="nav-link" href="#">Ro`yxatlar</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link" href="#" data-mdb-toggle="modal" data-mdb-target="#PROClick">PRO versiya</a>
+                              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#PROClickmodal">PRO versiya</a>
                          </li>
                          </ul>
                     </div>
@@ -99,22 +99,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                </div>
           </nav>
 
-          <!-- <div class="header__content">
-                    <a href="#" class="logo">fizo.uz</a>
-                    <nav class="nav">
-                         <ul class="nav__list">
-                              <li class="nav__item">
-                                   <a href="#" class="nav__link">Solution</a>
-                              </li>
-                              <li class="nav__item">
-                                   <a href="#" class="nav__link">Solution</a>
-                              </li>
-                              <li class="nav__item">
-                                   <a href="#" class="nav__link">Solution</a>
-                              </li>
-                         </ul>
-                    </nav>
-               </div> -->
+          
      </header>
      <main>
           <div class="container mt-1 mt-1">
@@ -132,13 +117,6 @@ $bolinmanomi = $row_bolinmanomi[0];
                <li class="mb-1"><i class="fas fa-check-circle me-2 text-success"></i>Uchinchi navbatda jismoniy tayyorgarlikdan egallangan natijalarni kerakli qatorlarga kiriting</li>
                </ul>
 
-
-
-
-
-               <!-- <p class="text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolore natus officiis, laudantium ab alias, ad nihil sint debitis exercitationem ea accusantium odit, doloribus quibusdam at optio porro recusandae necessitatibus.</p> -->
-               <!-- <table border="1" cellspacing="0" width="800" align="center"> -->
-               <!-- <div class="table-responsive-sm"> -->
                <section class="pb-4">
                     <!-- <div class="bg-white border rounded-2"> -->
                     <?php
@@ -146,29 +124,29 @@ $bolinmanomi = $row_bolinmanomi[0];
                     ?>
                     <!-- Agar bo`linma nomi kiritilmagan bo`lsa ushbu qator ishlaydi. Ya'ni jadval tuzilmagan bo`lsa -->
                     <!-- <div class="d-flex justify-content-center dobavit"> -->
-                      <div class="container divroyxat p-0">
-                        <div class="alert alert-success royxat">
-                          <div class="d-flex justify-content-center">
-                            <h4>Juda ham yaxshi!</h4>
-                          </div>
+                    <div class="container divroyxat p-0">
+                         <div class="alert alert-success royxat">
+                              <div class="d-flex justify-content-center">
+                              <h4>Juda ham yaxshi!</h4>
+                              </div>
 
-                          <div class="d-flex justify-content-center dobavit">
-                            <p class="royxat">Siz tomondan ro‘yxat shakllantirilmagan. Ro‘yxat tuzamizmi?</p>
-                          </div>
+                              <div class="d-flex justify-content-center dobavit">
+                              <p class="royxat">Siz tomondan ro‘yxat shakllantirilmagan. Ro‘yxat tuzamizmi?</p>
+                              </div>
 
-                            <hr>
+                              <hr>
 
-                            <div class="d-flex justify-content-center dobavit">
-                              <button type="button" class="btn btn-success bg-gradient" data-bs-toggle="modal" data-bs-target="#ModalCreateTable">Ro'yxat tuzish</button>
-                            </div>
+                              <div class="d-flex justify-content-center dobavit">
+                                   <button type="button" class="btn btn-success bg-gradient" data-bs-toggle="modal" data-bs-target="#ModalCreateTable">Ro'yxat tuzish</button>
+                              </div>
 
-                          </div>
-                        </div>
+                              </div>
+                         </div>
 
-                    <!-- </div> -->
+                    </div>
 
 
-                    <!-- Modal -->
+                    <!-- Modal Create Table Start -->
                     <div class="modal fade" id="ModalCreateTable" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
@@ -179,7 +157,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                           <div class="modal-body">
 
                             <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder="Bo`linmaning nomlanishi" aria-label="Username" aria-describedby="basic-addon1">
+                              <input type="text" class="form-control" placeholder="Bo`linmaning nomlanishi" aria-label="bolinmanomi" aria-describedby="basic-addon1">
                             </div>
 
                             <select class="form-select" aria-label="Default select example">
@@ -243,112 +221,14 @@ $bolinmanomi = $row_bolinmanomi[0];
                       </div>
                     </div>
 
-
-                      <!-- Modal Create table Start-->
-                      <div class="modal top fade" id="ModalCreateTable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
-                           <div class="modal-dialog  ">
-                           <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ro`yxatni shakllantirish</h5>
-                                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                     <div class="form-outline">
-                                     <input type="text" id="form99" class="form-control" />
-                                     <label class="form-label" for="form12">Bo‘linmaning nomlanishi</label>
-                                     </div>
-                                     <br>
-                                     <div class="form-outline">
-                                     <input type="text" id="form99" class="form-control" />
-                                     <label class="form-label" for="form13">Shaxsiy tarkib soni</label>
-                                     </div>
-
-                                     <br>
-                                     <div class="form-floating">
-
-                                     <select id="select1" class="form-select">
-                                          <?php
-                                          while ($row = mysqli_fetch_array($result1)) {
-                                          ?>
-                                          <option value="
-                                          <?= $row["mashqlar_id"] ?>">
-                                          <?php echo $row['mashq_nomi']; ?>
-                                          </option>
-                                          <?php
-                                          }
-                                          ?>
-                                     </select>
-                                     <label for="select1">1-mashqni tanlang</label>
-                                     </div>
-
-                                     <br>
-                                     <div class="form-floating">
-                                     <select id="select2" class="form-select">
-                                     <?php
-                                     while ($row = mysqli_fetch_array($result2)) {
-                                     ?>
-                                          <option value="
-                                          <?= $row["mashqlar_id"] ?>">
-                                          <?php echo $row['mashq_nomi']; ?>
-                                          </option>
-                                          <?php
-                                          }
-                                          ?>
-                                     </select>
-                                     <label for="select2">2-mashqni tanlang</label>
-                                     </div>
-
-                                     <br>
-                                     <div class="form-floating">
-                                     <select id="select3" class="form-select">
-                                     <?php
-                                     while ($row = mysqli_fetch_array($result3)) {
-                                     ?>
-                                          <option value="
-                                          <?= $row["mashqlar_id"] ?>">
-                                          <?php echo $row['mashq_nomi']; ?>
-                                          </option>
-                                          <?php
-                                          }
-                                          ?>
-                                     </select>
-                                     <label for="select3">3-mashqni tanlang</label>
-                                     </div>
-
-                                     <br>
-                                     <div class="form-floating">
-                                     <select id="select4" class="form-select">
-                                     <?php
-                                     while ($row = mysqli_fetch_array($result4)) {
-                                     ?>
-                                          <option value="
-                                          <?= $row["mashqlar_id"] ?>">
-                                          <?php echo $row['mashq_nomi']; ?>
-                                          </option>
-                                          <?php
-                                          }
-                                          ?>
-                                     </select>
-                                     <label for="select4">4-mashqni tanlang</label>
-                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Yaratish</button>
-                                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                                     Qaytish
-                                </button>
-                                </div>
-                           </div>
-                           </div>
-                      </div>
-                      <!-- Modal Create table End -->
-                    </div>
-
+                    <!-- Modal Create table End -->
+                    
                     <?php
                     } else {
                     ?>
+
                     <div class="bg-white border rounded-2">
-                    <button type="button" class="btn btn-outline-success m-2" data-mdb-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#ModalInsertNatija"><i class="fas fa-plus-circle me-2"></i>Natijalarni kiritish</button>
+                    <button type="button" class="btn btn-outline-success m-2" data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#ModalInsertNatija"><i class="fas fa-plus-circle me-2"></i>Natijalarni kiritish</button>
                     <button type="button" class="btn btn-outline-primary m-2" data-mdb-ripple-color="dark"><i class="fas fa-download me-2"></i>Exceldagi natijalarni yuklash</button>
                     <section class="w-100 p-2 text-center table-responsive">
 
@@ -426,52 +306,42 @@ $bolinmanomi = $row_bolinmanomi[0];
                          </table>
 
                               <!-- Modal Edit data Start-->
-                              <div class="modal top fade" id="ModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+                              <div class="modal top fade" id="ModalEdit" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
                                    <div class="modal-dialog">
                                    <div class="modal-content">
                                         <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Tahrirlash</h5>
-                                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <form action="edit_data.php" method="POST">
                                              <div class="modal-body">
 
                                                   <input type="hidden" name="edit_id" id="edit_id">
 
-                                                  <div class="form-outline">
-                                                  <input type="text" id="fish" name="fish" class="form-control" />
-                                                  <label class="form-label" for="form12">F.I.SH</label>
+                                                  <div class="input-group mb-3">
+                                                  <input type="text" id="fish" name="fish" class="form-control" placeholder="F.I.SH" aria-label="fish" aria-describedby="basic-addon1">
                                                   </div>
 
-                                                  <br>
-                                                  <div class="form-outline">
-                                                  <input type="text" id="natija1" name="natija1" class="form-control" />
-                                                  <label class="form-label" for="form13">2-mashq natijalarini kiriting</label>
+                                                  <div class="input-group mb-3">
+                                                  <input type="text" id="natija1" name="natija1" class="form-control" placeholder="1-mashq natijasini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
                                                   </div>
 
-                                                  <br>
-                                                  <div class="form-outline">
-                                                  <input type="text" id="natija2" name="natija2" class="form-control" />
-                                                  <label class="form-label" for="form13">5b-mashq natijalarini kiriting</label>
+                                                  <div class="input-group mb-3">
+                                                  <input type="text" id="natija2" name="natija2" class="form-control" placeholder="2-mashq natijasini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
                                                   </div>
 
-                                                  <br>
-                                                  <div class="form-outline">
-                                                  <input type="text" id="natija3" name="natija3" class="form-control" />
-                                                  <label class="form-label" for="form13">9-mashq natijalarini kiriting</label>
+                                                  <div class="input-group mb-3">
+                                                  <input type="text" id="natija3" name="natija3" class="form-control" placeholder="3-mashq natijasini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
                                                   </div>
 
-                                                  <br>
-                                                  <div class="form-outline">
-                                                  <input type="text" id="natija4" name="natija4" class="form-control" />
-                                                  <label class="form-label" for="form13">25-mashq natijalarini kiriting</label>
+                                                  <div class="input-group mb-3">
+                                                  <input type="text" id="natija4" name="natija4" class="form-control" placeholder="4-mashq natijasini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
                                                   </div>
 
                                              </div>
-
                                              <div class="modal-footer">
                                                   <button type="submit" name="edit_data" class="btn btn-primary">Saqlash</button>
-                                                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Qaytish</button>
+                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Qaytish</button>
                                              </div>
                                         </form>
                                    </div>
@@ -482,13 +352,13 @@ $bolinmanomi = $row_bolinmanomi[0];
 
 
                               <!-- Modal Delete data Start -->
-                              <div class="modal top fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+                              <div class="modal top fade" id="ModalDelete" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
                                    <div class="modal-dialog">
                                    <div class="modal-content">
                                         <form action="delete_data.php" method="POST">
                                              <div class="modal-header">
                                              <h5 class="modal-title" id="exampleModalLabel">Ma'lumotni o‘chirish</h5>
-                                             <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                              </div>
                                              <div class="modal-body">
                                                   <input type="hidden" name="delete_id" id="delete_id">
@@ -497,7 +367,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                                              </div>
                                              <div class="modal-footer">
                                              <button type="submit" name="delete_data" class="btn btn-danger">Ha</button>
-                                             <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                                   Qaytish
                                              </button>
                                              </div>
@@ -508,56 +378,47 @@ $bolinmanomi = $row_bolinmanomi[0];
                               <!-- Modal Delete data End -->
 
                               <!-- Modal Natijalarni kiritish Start-->
-                              <div class="modal top fade" id="ModalInsertNatija" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+                              <div class="modal top fade" id="ModalInsertNatija" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
                                    <div class="modal-dialog  ">
                                         <div class="modal-content">
                                              <form id="Natijakiritish" method="post" action="insert_natija_data.php">
                                                   <div class="modal-header">
                                                        <h5 class="modal-title" id="exampleModalLabel">Natijalarni kiritish</h5>
-                                                       <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                   </div>
                                                   <div class="modal-body">
 
                                                        <input type="hidden" name="user_id" id="user_id">
 
-                                                       <div class="form-outline">
-                                                       <input type="text" name="input_fish" id="form12" class="form-control" />
-                                                       <label class="form-label" for="form12">F.I.SH</label>
+                                                       <div class="input-group mb-3">
+                                                       <input type="text" name="input_fish" id="form12" class="form-control" placeholder="F.I.SH" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
 
-                                                       <br>
-                                                       <div class="form-outline">
-                                                       <input type="date" name="input_tugilgan_kuni"  id="datepicker" class="form-control" />
-                                                       <label class="form-label" for="date">Tug‘ilgan sanasi</label>
+                                                       <div class="input-group mb-3">
+                                                       <input type="date" name="input_tugilgan_kuni"  id="date" placeholder="Tug`ilgan yili" class="form-control" />
+                                                       <!-- <label class="form-label" for="date">Tug‘ilgan sanasi</label> -->
                                                        </div>
 
-                                                       <br>
-                                                       <div class="form-outline">
-                                                       <input type="text" name="input_natija1" id="form13" class="form-control" />
-                                                       <label class="form-label" for="form13">2-mashq natijalarini kiriting</label>
+                                                       <div class="input-group mb-3">
+                                                       <input type="text" name="input_natija1" id="mashq" class="form-control" placeholder="2-mashq natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
 
-                                                       <br>
-                                                       <div class="form-outline">
-                                                       <input type="text" name="input_natija2" id="form13" class="form-control" />
-                                                       <label class="form-label" for="form13">5b-mashq natijalarini kiriting</label>
+                                                       <div class="input-group mb-3">
+                                                       <input type="text" name="input_natija2" id="mashq" class="form-control" placeholder="5b-mashq natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
 
-                                                       <br>
-                                                       <div class="form-outline">
-                                                       <input type="text" name="input_natija3" id="form13" class="form-control" />
-                                                       <label class="form-label" for="form13">9-mashq natijalarini kiriting</label>
+                                                       <div class="input-group mb-3">
+                                                       <input type="text" name="input_natija3" id="mashq" class="form-control" placeholder="9-mashq natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
 
-                                                       <br>
-                                                       <div class="form-outline">
-                                                       <input type="text" name="input_natija4" id="form13" class="form-control" />
-                                                       <label class="form-label" for="form13">25-mashq natijalarini kiriting</label>
+                                                       <div class="input-group mb-3">
+                                                       <input type="text" name="input_natija4" id="mashq" class="form-control" placeholder="25-mashq natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
+
                                                   </div>
                                                   <div class="modal-footer">
                                                        <button type="submit" class="btn btn-success" name="insertdata">Kiritish</button>
-                                                       <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Qaytish</button>
+                                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Qaytish</button>
                                                   </div>
                                              </form>
                                         </div>
@@ -566,12 +427,12 @@ $bolinmanomi = $row_bolinmanomi[0];
                               <!-- Modal Natijalarni kiritish End -->
 
                               <!-- Modal Pro versiya Start-->
-                              <div class="modal top fade" id="PROClick" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+                              <div class="modal fade" id="PROClickmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
                                    <div class="modal-dialog modal-dialog-centered">
                                    <div class="modal-content">
                                         <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Tahrirlash</h5>
-                                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
 
@@ -581,7 +442,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                                         </div>
                                         <div class="modal-footer">
                                         <!-- <button type="button" class="btn btn-primary">Saqlash</button> -->
-                                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                              OK
                                         </button>
                                         </div>
