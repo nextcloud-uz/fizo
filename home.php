@@ -426,30 +426,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                               </div>
                               <!-- Modal Natijalarni kiritish End -->
 
-                              <!-- Modal Pro versiya Start-->
-                              <div class="modal fade" id="PROClickmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
-                                   <div class="modal-dialog modal-dialog-centered">
-                                   <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Tahrirlash</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                             PRO versiya ustida amaliy ishlar olib borilmoqda. <br>
-                                             Yaqin kunlar ichida ishga tushadi.
-
-                                        </div>
-                                        <div class="modal-footer">
-                                        <!-- <button type="button" class="btn btn-primary">Saqlash</button> -->
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                             OK
-                                        </button>
-                                        </div>
-                                   </div>
-                                   </div>
-                              </div>
-                              <!-- Modal Pro versiya End -->
+                              
 
 
 
@@ -461,23 +438,38 @@ $bolinmanomi = $row_bolinmanomi[0];
                     }
                      ?>
 
+                     <!-- Modal Pro versiya Start-->
+                    <div class="modal fade" id="PROClickmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
+                         <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                   <div class="modal-header">
+                                   <h5 class="modal-title" id="exampleModalLabel">PRO versiya</h5>
+                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                   </div>
+                                   <div class="modal-body">
+
+                                   <p class="pro">PRO versiya ustida amaliy ishlar olib borilmoqda. <br>
+                                        Yaqin kunlar ichida ishga tushadi.</p>
+                                        
+
+                                   </div>
+                                   <div class="modal-footer">
+                                   <!-- <button type="button" class="btn btn-primary">Saqlash</button> -->
+                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        OK
+                                   </button>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <!-- Modal Pro versiya End -->
+
 
                </section>
-               <!-- </div> -->
 
           </div>
 
-
-
      </main>
-
-     <!-- <script type="text/javascript">
-       $('#btn2223').on('click', function(){
-         $('#ModalCreateTable').modal('show');
-       });
-     </script> -->
-
-
 
      <script>
         $(document).ready(function () {
