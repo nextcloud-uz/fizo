@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 02 2023 г., 11:06
+-- Время создания: Май 04 2023 г., 09:36
 -- Версия сервера: 10.4.28-MariaDB
 -- Версия PHP: 8.2.4
 
@@ -74,20 +74,21 @@ INSERT INTO `1guruh` (`id`, `ball`, `1-mashq`, `2-mashq`, `3-mashq`, `4-mashq`, 
 CREATE TABLE `mashqlar` (
   `mashqlar_id` int(11) NOT NULL,
   `mashq_nomi` varchar(255) NOT NULL,
-  `mashq_tuliq_nomi` varchar(255) NOT NULL
+  `mashq_tuliq_nomi` varchar(255) NOT NULL,
+  `mashq_server_nomi` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `mashqlar`
 --
 
-INSERT INTO `mashqlar` (`mashqlar_id`, `mashq_nomi`, `mashq_tuliq_nomi`) VALUES
-(1, '1-mashq', '10x10 metr masofaga moki yugurish mashqi'),
-(2, '2-mashq', '100 metrga yugurish mashqi'),
-(3, '3-mashq', '400 metrga yugurish mashqi'),
-(4, '4-mashq', '1000 metrga yugurish mashqi'),
-(5, '5b-mashqi', '3000 metrga yugurish mashqi'),
-(6, '6a-mashq', '5000 metrga yugurish mashqi');
+INSERT INTO `mashqlar` (`mashqlar_id`, `mashq_nomi`, `mashq_tuliq_nomi`, `mashq_server_nomi`) VALUES
+(1, '1-mashq', '10x10 metr masofaga moki yugurish mashqi', '1-mashq_t'),
+(2, '2-mashq', '100 metrga yugurish mashqi', '2-mashq_t'),
+(3, '3-mashq', '400 metrga yugurish mashqi', '3-mashq_t'),
+(4, '4-mashq', '1000 metrga yugurish mashqi', '4-mashq_t'),
+(5, '5b-mashq', '3000 metrga yugurish mashqi', '5b-mashq_t'),
+(6, '6a-mashq', '5000 metrga yugurish mashqi', '6a-mashq_t');
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,27 @@ CREATE TABLE `user401` (
 
 INSERT INTO `user401` (`user_id`, `fish`, `tugilgan_kuni`, `yoshi`, `vazni`, `guruhi`, `natija1`, `ball1`, `natija2`, `ball2`, `natija3`, `ball3`, `natija4`, `ball4`, `umumiyball`, `baho`, `current_time`, `bolinma_nomi`) VALUES
 (1, 'Bo`riyev Quvonch Nurbekovich', '1994-05-12', 28, 75, '2', 13.62, 19, 11.50, 21, 20, 19, 22.50, 22, 81, 5, '2023-03-10', '401'),
-(2, 'Yadgarov Elbek', '1999-09-23', 23, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-02', NULL);
+(2, 'Yadgarov Elbek', '1999-09-23', 23, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.01, 3, 9, 2, '2023-05-02', '402'),
+(3, 'Salomov Doniyor', '1999-09-12', 23, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', '402'),
+(4, 'Tursunov', '2000-09-12', 22, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', '404'),
+(5, 'Pozilov', '2000-09-12', 22, NULL, '1guruh', 13.00, 3, 13.00, 3, 13, 0, 13.00, 3, 9, 2, '2023-05-04', ''),
+(6, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', ''),
+(7, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', ''),
+(8, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', ''),
+(9, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', '14'),
+(10, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', 'Fozil'),
+(11, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', ''),
+(12, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', 'Fozil'),
+(13, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', ''),
+(14, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', ''),
+(15, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', ''),
+(16, 'Omonov', '1999-03-12', 24, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', '404'),
+(17, 'Pozilov', '2000-09-15', 22, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', '404'),
+(18, 'Pozilov', '2000-09-15', 22, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', '404'),
+(19, 'Pozilov', '2000-09-12', 22, NULL, '1guruh', 13.00, 3, 13.00, 3, 9, 3, 13.00, 3, 12, 2, '2023-05-04', '404'),
+(20, 'Pozilov', '2000-09-12', 22, NULL, '1guruh', 13.00, 3, 13.00, 3, 9, 3, 13.00, 3, 12, 2, '2023-05-04', '404'),
+(21, 'Jamshid', '2000-10-24', 22, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 0, 12.00, 3, 9, 2, '2023-05-04', '405'),
+(22, 'Jamshid', '2000-10-24', 22, NULL, '1guruh', 12.00, 3, 12.00, 3, 12, 3, 12.00, 3, 12, 2, '2023-05-04', '405');
 
 -- --------------------------------------------------------
 
@@ -167,9 +188,13 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `name`, `bolinmanomi`, `1-mashq`, `2-mashq`, `3-mashq`, `4-mashq`) VALUES
 (8, '1111', 'b59c67bf196a4758191e42f76670ceba', '1111', NULL, NULL, NULL, NULL, NULL),
-(9, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '401', '2-mashq', '5b-mashq', '9-mashq', '251-mashq'),
-(10, 'ILYA', '26c509535026fc01418a8dd812cc2cc6', 'ILYA', NULL, NULL, NULL, NULL, NULL),
-(11, 'Salom', '4be1041e508b1bcadd666d5170a4bfce', 'Salom', NULL, NULL, NULL, NULL, NULL);
+(9, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '401', '1', '2', '5', '1'),
+(10, 'ILYA', '26c509535026fc01418a8dd812cc2cc6', 'ILYA', '402', '2', '3', '5', '6'),
+(11, 'Salom', '4be1041e508b1bcadd666d5170a4bfce', 'Salom', NULL, NULL, NULL, NULL, NULL),
+(12, 'olim', '8f2a43bc7f72d9c153c16c1fb4a7e909', 'Olim', NULL, NULL, NULL, NULL, NULL),
+(13, 'Iskandar', 'a540e6d539fd070a988acdc6b414d45a', 'Iskandar', '403', '1-mashq', '3', '2', '6'),
+(14, 'Fozil', '13d95ac68bbef016e975c1955b39e560', 'Fozil', '404', '3', '4', '5', '6'),
+(15, 'Jamshid', '9f47e7106c571bba2d6ca4b27d586351', 'Jamshid', '405', '3', '1', '5', '6');
 
 -- --------------------------------------------------------
 
@@ -256,7 +281,7 @@ ALTER TABLE `mashqlar`
 -- AUTO_INCREMENT для таблицы `user401`
 --
 ALTER TABLE `user401`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT для таблицы `userbolinma`
@@ -268,7 +293,7 @@ ALTER TABLE `userbolinma`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `yoshguruh`

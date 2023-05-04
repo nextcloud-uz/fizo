@@ -8,12 +8,17 @@ $result1 = mysqli_query($conn, "SELECT * FROM mashqlar");
 $result2 = mysqli_query($conn, "SELECT * FROM mashqlar");
 $result3 = mysqli_query($conn, "SELECT * FROM mashqlar");
 $result4 = mysqli_query($conn, "SELECT * FROM mashqlar");
-$resuser401 = mysqli_query($conn, "SELECT * FROM user401");
 $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
 
-$res_bolinmanomi = mysqli_query($conn, "SELECT bolinmanomi FROM users WHERE `id` =".$_SESSION['id']);
-$row_bolinmanomi = mysqli_fetch_row($res_bolinmanomi);
+$row_bolinmanomi = mysqli_fetch_row(mysqli_query($conn, "SELECT bolinmanomi, `1-mashq`, `2-mashq`, `3-mashq`, `4-mashq` FROM users WHERE `id` =".$_SESSION['id']));
 $bolinmanomi = $row_bolinmanomi[0];
+
+$mashqnomi1 = mysqli_fetch_row(mysqli_query($conn, "SELECT `mashq_nomi`, mashq_server_nomi FROM mashqlar WHERE `mashqlar_id` = '$row_bolinmanomi[1]'"));
+$mashqnomi2 = mysqli_fetch_row(mysqli_query($conn, "SELECT `mashq_nomi`, mashq_server_nomi FROM mashqlar WHERE `mashqlar_id` = '$row_bolinmanomi[2]'"));
+$mashqnomi3 = mysqli_fetch_row(mysqli_query($conn, "SELECT `mashq_nomi`, mashq_server_nomi FROM mashqlar WHERE `mashqlar_id` = '$row_bolinmanomi[3]'"));
+$mashqnomi4 = mysqli_fetch_row(mysqli_query($conn, "SELECT `mashq_nomi`, mashq_server_nomi FROM mashqlar WHERE `mashqlar_id` = '$row_bolinmanomi[4]'"));
+
+$resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = '$row_bolinmanomi[0]'");
 
  ?>
 <!DOCTYPE html>
@@ -99,7 +104,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                </div>
           </nav>
 
-          
+
      </header>
      <main>
           <div class="container mt-1 mt-1">
@@ -150,17 +155,19 @@ $bolinmanomi = $row_bolinmanomi[0];
                     <div class="modal fade" id="ModalCreateTable" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
+                          <form id="Jadvalyaratish" method="post" action="create_table.php">
                           <div class="modal-header">
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Ro`yxatni shakllantirish</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
+
                           <div class="modal-body">
 
                             <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder="Bo`linmaning nomlanishi" aria-label="bolinmanomi" aria-describedby="basic-addon1">
+                              <input type="text" name="input_bolinmanomi" class="form-control" placeholder="Bo`linmaning nomlanishi" aria-label="bolinmanomi" aria-describedby="basic-addon1">
                             </div>
 
-                            <select class="form-select" aria-label="Default select example">
+                            <select name="input_mashq1" class="form-select" aria-label="Default select example">
                               <option selected>1-mashqni tanlang</option>
                               <?php
                               while ($row = mysqli_fetch_array($result1)) {
@@ -173,7 +180,7 @@ $bolinmanomi = $row_bolinmanomi[0];
 
                             <br>
 
-                            <select class="form-select" aria-label="Default select example">
+                            <select name="input_mashq2" class="form-select" aria-label="Default select example">
                               <option selected>2-mashqni tanlang</option>
                               <?php
                               while ($row = mysqli_fetch_array($result2)) {
@@ -186,7 +193,7 @@ $bolinmanomi = $row_bolinmanomi[0];
 
                             <br>
 
-                            <select class="form-select" aria-label="Default select example">
+                            <select name="input_mashq3" class="form-select" aria-label="Default select example">
                               <option selected>3-mashqni tanlang</option>
                               <?php
                               while ($row = mysqli_fetch_array($result3)) {
@@ -199,7 +206,7 @@ $bolinmanomi = $row_bolinmanomi[0];
 
                             <br>
 
-                            <select class="form-select" aria-label="Default select example">
+                            <select name="input_mashq4" class="form-select" aria-label="Default select example">
                               <option selected>4-mashqni tanlang</option>
                               <?php
                               while ($row = mysqli_fetch_array($result4)) {
@@ -212,17 +219,18 @@ $bolinmanomi = $row_bolinmanomi[0];
 
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Yaratish</button>
+                            <button type="submit" name="createtable" class="btn btn-primary">Yaratish</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                  Qaytish
                             </button>
                           </div>
+                        </from>
                         </div>
                       </div>
                     </div>
 
                     <!-- Modal Create table End -->
-                    
+
                     <?php
                     } else {
                     ?>
@@ -240,7 +248,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                                         while ($row = mysqli_fetch_array($resuserbolinma)) {
                                         ?>
                                              <th colspan="14">
-                                                  <p class="bolinma_nomi"><?php echo $row['bolinma_nomi']; ?></p>
+                                                  <p class="bolinma_nomi"><?php echo $row_bolinmanomi[0]; ?></p>
                                              </th>
                                         <?php
                                         }
@@ -257,10 +265,10 @@ $bolinmanomi = $row_bolinmanomi[0];
                                         </tr>
 
                                         <tr>
-                                             <th colspan="2">2-mashq</th>
-                                             <th colspan="2">5b-mashq</th>
-                                             <th colspan="2">9-mashq</th>
-                                             <th colspan="2">25-mashq</th>
+                                             <th colspan="2"><?php echo $mashqnomi1[0] ?></th>
+                                             <th colspan="2"><?php echo $mashqnomi2[0] ?></th>
+                                             <th colspan="2"><?php echo $mashqnomi3[0] ?></th>
+                                             <th colspan="2"><?php echo $mashqnomi4[0] ?></th>
                                         </tr>
                                         <tr>
                                              <th>Natija</th>
@@ -426,7 +434,7 @@ $bolinmanomi = $row_bolinmanomi[0];
                               </div>
                               <!-- Modal Natijalarni kiritish End -->
 
-                              
+
 
 
 
@@ -450,7 +458,7 @@ $bolinmanomi = $row_bolinmanomi[0];
 
                                    <p class="pro">PRO versiya ustida amaliy ishlar olib borilmoqda. <br>
                                         Yaqin kunlar ichida ishga tushadi.</p>
-                                        
+
 
                                    </div>
                                    <div class="modal-footer">

@@ -1,5 +1,9 @@
 <?php
     include_once 'db_conn.php';
+    session_start();
+
+    $row_bolinmanomi = mysqli_fetch_row(mysqli_query($conn, "SELECT bolinmanomi FROM users WHERE `id` =".$_SESSION['id']));
+    $bolinmanomi = $row_bolinmanomi[0];
 
     if(isset($_POST['insertdata']))
     {
@@ -60,7 +64,7 @@
           $ball3 = 0;
         }
         else{
-          $ball3 = "SELECT ball FROM `$guruhi` WHERE `9-mashq` >= '$natija3' ORDER BY id DESC limit 1";
+          $ball3 = "SELECT ball FROM `$guruhi` WHERE `9-mashq` <= '$natija3' ORDER BY id DESC limit 1";
           $result_ball3 = mysqli_query($conn, $ball3);
           $row_ball3 = mysqli_fetch_row($result_ball3);
           $ball3 = $row_ball3[0];
@@ -79,7 +83,7 @@
 
         // Umumiy ballni hisoblash va o`zgaruvchiga yozish
         $umumiyball = $ball1 + $ball2 + $ball3 + $ball4;
-        echo $umumiyball;
+        // echo $umumiyball;
 
         // Bahoni chiqarish va o`zgaruvchiga yozish
         if($umumiyball > 80){
@@ -96,14 +100,14 @@
         }
 
         // Barcha var larni bazaga kiritish
-        $sql = "INSERT INTO `user401` (`fish`, `tugilgan_kuni`, `yoshi`, `guruhi`, `natija1`, `ball1`, `natija2`, `ball2`, `natija3`, `ball3`, `natija4`, `ball4`, `umumiyball`, `baho`)
-        VALUES ('$fish', '$tugilgan_kuni', ($yoshi), '$guruhi', '$natija1', '$ball1', '$natija2', '$ball2', '$natija3', '$ball3', '$natija4', '$ball4', '$umumiyball', '$baho')";
+        $sql = "INSERT INTO `user401` (`fish`, `tugilgan_kuni`, `yoshi`, `guruhi`, `natija1`, `ball1`, `natija2`, `ball2`, `natija3`, `ball3`, `natija4`, `ball4`, `umumiyball`, `baho`, `bolinma_nomi`)
+        VALUES ('$fish', '$tugilgan_kuni', ($yoshi), '$guruhi', '$natija1', '$ball1', '$natija2', '$ball2', '$natija3', '$ball3', '$natija4', '$ball4', '$umumiyball', '$baho', '$bolinmanomi')";
         $res = mysqli_query($conn, $sql);
 
         if ($res)
         {
             echo '<script> alert("Ma`lumotlar bazaga kiritildi"); </script>';
-            header('Location: home.php');
+            // header('Location: home.php');
         }
         else
         {
