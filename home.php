@@ -404,23 +404,22 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 
                                                        <div class="input-group mb-3">
                                                        <input type="date" name="input_tugilgan_kuni"  id="date" placeholder="Tug`ilgan yili" class="form-control" />
-                                                       <!-- <label class="form-label" for="date">Tug‘ilgan sanasi</label> -->
                                                        </div>
 
                                                        <div class="input-group mb-3">
-                                                       <input type="text" name="input_natija1" id="mashq" class="form-control" placeholder="2-mashq natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
+                                                       <input type="text" name="input_natija1" id="mashq" class="form-control" placeholder="<?php echo $mashqnomi1[0] ?> natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
 
                                                        <div class="input-group mb-3">
-                                                       <input type="text" name="input_natija2" id="mashq" class="form-control" placeholder="5b-mashq natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
+                                                       <input type="text" name="input_natija2" id="mashq" class="form-control" placeholder="<?php echo $mashqnomi2[0] ?> natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
 
                                                        <div class="input-group mb-3">
-                                                       <input type="text" name="input_natija3" id="mashq" class="form-control" placeholder="9-mashq natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
+                                                       <input type="text" name="input_natija3" id="mashq" class="form-control" placeholder="<?php echo $mashqnomi3[0] ?> natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
 
                                                        <div class="input-group mb-3">
-                                                       <input type="text" name="input_natija4" id="mashq" class="form-control" placeholder="25-mashq natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
+                                                       <input type="text" name="input_natija4" id="mashq" class="form-control" placeholder="<?php echo $mashqnomi4[0] ?> natijalarini kiriting" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
 
                                                   </div>
@@ -528,7 +527,8 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
     </script>
 
 </body>
-<footer class="bg-light text-center text-lg-start fixed-bottom">
+<br>
+<footer class="bg-light text-center text-lg-start">
 <!-- Copyright -->
 <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.025);">
 © 2023 Copyright:
@@ -537,6 +537,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 </div>
 <!-- Copyright -->
 </footer>
+
 </html>
 
 <?php
