@@ -1,7 +1,7 @@
 <?php
     include_once 'db_conn.php';
-    include_once 'home.php';
-    // session_start();
+    // include_once 'home.php';
+    session_start();
 
     $row_bolinmanomi = mysqli_fetch_row(mysqli_query($conn, "SELECT bolinmanomi FROM users WHERE `id` =".$_SESSION['id']));
     // $row_mashqlarnomi = mysqli_fetch_row(mysqli_query($conn, "SELECT mashq_server_nomi FROM mashqlar WHERE `mashq_nomi` = "));
@@ -16,6 +16,19 @@
         $natija2        = $_POST['input_natija2'];
         $natija3        = $_POST['input_natija3'];
         $natija4        = $_POST['input_natija4'];
+        $mashqnomi1     = $_POST['mashqnomi1'];
+        $mashqnomi2     = $_POST['mashqnomi2'];
+        $mashqnomi3     = $_POST['mashqnomi3'];
+        $mashqnomi4     = $_POST['mashqnomi4'];
+        $mashqservernomi1     = $_POST['mashqservernomi1'];
+        $mashqservernomi2     = $_POST['mashqservernomi2'];
+        $mashqservernomi3     = $_POST['mashqservernomi3'];
+        $mashqservernomi4     = $_POST['mashqservernomi4'];
+
+        // echo $mashqnomi1;
+        // echo $mashqnomi2;
+        // echo $mashqnomi3;
+        // echo $mashqnomi4;
 
         $yoshi = "SELECT TIMESTAMPDIFF(YEAR, '$tugilgan_kuni', curdate())";
         $result = mysqli_query($conn, $yoshi);
@@ -44,11 +57,11 @@
           $ball1 = 0;
         }
         else{
-          if($mashqnomi1[1] === 't'){
-            $ball1 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi1[0]` >= '$natija1' ORDER BY id DESC limit 1";
+          if($mashqservernomi1 === 't'){
+            $ball1 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi1` >= '$natija1' ORDER BY id DESC limit 1";
           }
-          if($mashqnomi1[1] === 'c'){
-            $ball1 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi1[0]` <= '$natija1' ORDER BY id DESC limit 1";
+          if($mashqservernomi1 === 'c'){
+            $ball1 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi1` <= '$natija1' ORDER BY id DESC limit 1";
           }
           $result_ball1 = mysqli_query($conn, $ball1);
           $row_ball1 = mysqli_fetch_row($result_ball1);
@@ -64,11 +77,11 @@
           $ball2 = 0;
         }
         else{
-          if($mashqnomi2[1] === 't'){
-            $ball2 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi2[0]` >= '$natija2' ORDER BY id DESC limit 1";
+          if($mashqservernomi2 === 't'){
+            $ball2 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi2` >= '$natija2' ORDER BY id DESC limit 1";
           }
-          if($mashqnomi2[1] === 'c'){
-            $ball2 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi2[0]` <= '$natija2' ORDER BY id DESC limit 1";
+          if($mashqservernomi2 === 'c'){
+            $ball2 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi2` <= '$natija2' ORDER BY id DESC limit 1";
           }
           $result_ball2 = mysqli_query($conn, $ball2);
           $row_ball2 = mysqli_fetch_row($result_ball2);
@@ -84,11 +97,11 @@
           $ball3 = 0;
         }
         else{
-          if($mashqnomi3[1] === 't'){
-            $ball3 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi3[0]` >= '$natija3' ORDER BY id DESC limit 1";
+          if($mashqservernomi3 === 't'){
+            $ball3 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi3` >= '$natija3' ORDER BY id DESC limit 1";
           }
-          if($mashqnomi3[1] === 'c'){
-            $ball3 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi3[0]` <= '$natija3' ORDER BY id DESC limit 1";
+          if($mashqservernomi3 === 'c'){
+            $ball3 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi3` <= '$natija3' ORDER BY id DESC limit 1";
           }
           $result_ball3 = mysqli_query($conn, $ball3);
           $row_ball3 = mysqli_fetch_row($result_ball3);
@@ -104,11 +117,11 @@
           $ball4 = 0;
         }
         else{
-          if($mashqnomi4[1] === 't'){
-            $ball4 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi4[0]` >= '$natija4' ORDER BY id DESC limit 1";
+          if($mashqservernomi4 === 't'){
+            $ball4 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi4` >= '$natija4' ORDER BY id DESC limit 1";
           }
-          if($mashqnomi4[1] === 'c'){
-            $ball4 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi4[0]` <= '$natija4' ORDER BY id DESC limit 1";
+          if($mashqservernomi4 === 'c'){
+            $ball4 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi4` <= '$natija4' ORDER BY id DESC limit 1";
           }
           $result_ball4 = mysqli_query($conn, $ball4);
           $row_ball4 = mysqli_fetch_row($result_ball4);

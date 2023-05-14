@@ -237,7 +237,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 
                     <div class="bg-white border rounded-2">
                     <button type="button" class="btn btn-outline-success m-2" data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#ModalInsertNatija"><i class="fas fa-plus-circle me-2"></i>Natijalarni kiritish</button>
-                    <button type="button" class="btn btn-outline-primary m-2" data-mdb-ripple-color="dark"><i class="fas fa-download me-2"></i>Exceldagi natijalarni yuklash</button>
+                    <button type="button" class="btn btn-outline-primary m-2 disabled" data-mdb-ripple-color="dark"><i class="fas fa-download me-2"></i>Exceldagi natijalarni yuklash</button>
                     <section class="w-100 p-2 text-center table-responsive">
 
                          <table id="datatable" class="table table-bordered m-0">
@@ -325,6 +325,10 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                                              <div class="modal-body">
 
                                                   <input type="hidden" name="edit_id" id="edit_id">
+                                                  <input type="hidden" name="mashqnomi1" value="<?php $mashqnomi1[1] ?>">
+                                                  <input type="hidden" name="mashqnomi2" value="<?php $mashqnomi2[1] ?>">
+                                                  <input type="hidden" name="mashqnomi3" value="<?php $mashqnomi3[1] ?>">
+                                                  <input type="hidden" name="mashqnomi4" value="<?php $mashqnomi4[1] ?>">
 
                                                   <div class="input-group mb-3">
                                                   <input type="text" id="fish" name="fish" class="form-control" placeholder="F.I.SH" aria-label="fish" aria-describedby="basic-addon1">
@@ -397,6 +401,14 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                                                   <div class="modal-body">
 
                                                        <input type="hidden" name="user_id" id="user_id">
+                                                       <input type="hidden" name="mashqnomi1" value="<?php echo $mashqnomi1[0] ?>">
+                                                       <input type="hidden" name="mashqnomi2" value="<?php echo $mashqnomi2[0] ?>">
+                                                       <input type="hidden" name="mashqnomi3" value="<?php echo $mashqnomi3[0] ?>">
+                                                       <input type="hidden" name="mashqnomi4" value="<?php echo $mashqnomi4[0] ?>">
+                                                       <input type="hidden" name="mashqservernomi1" value="<?php echo $mashqnomi1[1] ?>">
+                                                       <input type="hidden" name="mashqservernomi2" value="<?php echo $mashqnomi2[1] ?>">
+                                                       <input type="hidden" name="mashqservernomi3" value="<?php echo $mashqnomi3[1] ?>">
+                                                       <input type="hidden" name="mashqservernomi4" value="<?php echo $mashqnomi4[1] ?>">
 
                                                        <div class="input-group mb-3">
                                                        <input type="text" name="input_fish" id="form12" class="form-control" placeholder="F.I.SH" aria-label="fish" aria-describedby="basic-addon1">
