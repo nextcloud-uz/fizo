@@ -1,10 +1,8 @@
 <?php
     include_once 'db_conn.php';
-    // include_once 'home.php';
     session_start();
 
     $row_bolinmanomi = mysqli_fetch_row(mysqli_query($conn, "SELECT bolinmanomi FROM users WHERE `id` =".$_SESSION['id']));
-    // $row_mashqlarnomi = mysqli_fetch_row(mysqli_query($conn, "SELECT mashq_server_nomi FROM mashqlar WHERE `mashq_nomi` = "));
     $bolinmanomi = $row_bolinmanomi[0];
     
     if(isset($_POST['insertdata']))
@@ -25,10 +23,6 @@
         $mashqservernomi3     = $_POST['mashqservernomi3'];
         $mashqservernomi4     = $_POST['mashqservernomi4'];
 
-        // echo $mashqnomi1;
-        // echo $mashqnomi2;
-        // echo $mashqnomi3;
-        // echo $mashqnomi4;
 
         $yoshi = "SELECT TIMESTAMPDIFF(YEAR, '$tugilgan_kuni', curdate())";
         $result = mysqli_query($conn, $yoshi);
@@ -157,7 +151,7 @@
 
         if ($res)
         {
-            // echo '<script> alert("Ma`lumotlar bazaga kiritildi"); </script>';
+            echo '<script> alert("Ma`lumotlar bazaga kiritildi"); </script>';
             header('Location: home.php');
         }
         else
@@ -167,38 +161,3 @@
     }
 
 ?>
-
-
-
-
-<!-- SELECT `COLUMN_NAME`
-FROM `INFORMATION_SCHEMA`.`COLUMNS`
-WHERE `TABLE_SCHEMA`='yourdatabasename'
-    AND `TABLE_NAME`='yourtablename'; -->
-
-
-     <!-- include_once 'db_conn.php';
-    $result_natija = mysqli_query($conn,"SELECT * FROM user401");
-  	$row_link = mysqli_fetch_array($result_natija);
-    $success  = "";
-    if(isset($_POST['add']))
-    {
-        $fish           = $_POST['fish'];
-        $tugilgan_kuni  = $_POST['tugilgan_kuni'];
-        $natija1        = $_POST['2-mashq'];
-        $natija2        = $_POST['5b-mashq'];
-        $natija3        = $_POST['9-mashq'];
-        $natija4        = $_POST['25-mashq'];
-
-        $sql = "INSERT INTO user401 (`fish`, `tugilgan_kuni`, `2-mashq`, `5b-mashq`, `9-mashq`, `25-mashq`)
-        VALUES ('$fish', '$tugilgan_kuni', '$natija1', '$natija2', '$natija3', '$natija4')";
-    if (mysqli_query($conn, $sql))
-    {
-        $success    =   "Ma'lumotlar bazaga muvoffaqiyatli kiritildi!";
-    }
-    else
-    {
-    echo "Error: " . $sql . " " . mysqli_error($conn);
-    }
-    mysqli_close($conn);
-    } -->

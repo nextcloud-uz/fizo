@@ -66,6 +66,11 @@ td {
   vertical-align: middle;
 }
 
+p.userid{
+  font-size: 1px;
+  visibility: hidden;
+}
+
 span.soat {
   font-weight: 900;
   font-size: 1rem;

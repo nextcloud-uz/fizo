@@ -164,7 +164,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                           <div class="modal-body">
 
                             <div class="input-group mb-3">
-                              <input type="text" name="input_bolinmanomi" class="form-control" placeholder="Bo`linmaning nomlanishi" aria-label="bolinmanomi" aria-describedby="basic-addon1">
+                              <input type="text" required name="input_bolinmanomi" class="form-control" placeholder="Bo`linmaning nomlanishi" aria-label="bolinmanomi" aria-describedby="basic-addon1">
                             </div>
 
                             <select name="input_mashq1" class="form-select" aria-label="Default select example">
@@ -180,7 +180,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 
                             <br>
 
-                            <select name="input_mashq2" class="form-select" aria-label="Default select example">
+                            <select name="input_mashq2" required class="form-select" aria-label="Default select example">
                               <option selected>2-mashqni tanlang</option>
                               <?php
                               while ($row = mysqli_fetch_array($result2)) {
@@ -282,7 +282,9 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                                         </tr>
                                    </thead>
                               <?php
+                              $tartibraqam = 0;
                               while ($row = mysqli_fetch_array($resuser401)) {
+                                   $tartibraqam = ++$tartibraqam;
                               ?>
                                    <tbody>
                                         <tr>
@@ -325,10 +327,14 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                                              <div class="modal-body">
 
                                                   <input type="hidden" name="edit_id" id="edit_id">
-                                                  <input type="hidden" name="mashqnomi1" value="<?php $mashqnomi1[1] ?>">
-                                                  <input type="hidden" name="mashqnomi2" value="<?php $mashqnomi2[1] ?>">
-                                                  <input type="hidden" name="mashqnomi3" value="<?php $mashqnomi3[1] ?>">
-                                                  <input type="hidden" name="mashqnomi4" value="<?php $mashqnomi4[1] ?>">
+                                                  <input type="hidden" name="mashqnomi1" value="<?php echo $mashqnomi1[0] ?>">
+                                                  <input type="hidden" name="mashqnomi2" value="<?php echo $mashqnomi2[0] ?>">
+                                                  <input type="hidden" name="mashqnomi3" value="<?php echo $mashqnomi3[0] ?>">
+                                                  <input type="hidden" name="mashqnomi4" value="<?php echo $mashqnomi4[0] ?>">
+                                                  <input type="hidden" name="mashqservernomi1" value="<?php echo $mashqnomi1[1] ?>">
+                                                  <input type="hidden" name="mashqservernomi2" value="<?php echo $mashqnomi2[1] ?>">
+                                                  <input type="hidden" name="mashqservernomi3" value="<?php echo $mashqnomi3[1] ?>">
+                                                  <input type="hidden" name="mashqservernomi4" value="<?php echo $mashqnomi4[1] ?>">
 
                                                   <div class="input-group mb-3">
                                                   <input type="text" id="fish" name="fish" class="form-control" placeholder="F.I.SH" aria-label="fish" aria-describedby="basic-addon1">
@@ -411,11 +417,11 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                                                        <input type="hidden" name="mashqservernomi4" value="<?php echo $mashqnomi4[1] ?>">
 
                                                        <div class="input-group mb-3">
-                                                       <input type="text" name="input_fish" id="form12" class="form-control" placeholder="F.I.SH" aria-label="fish" aria-describedby="basic-addon1">
+                                                       <input type="text" required name="input_fish" id="form12" class="form-control" placeholder="F.I.SH" aria-label="fish" aria-describedby="basic-addon1">
                                                        </div>
 
                                                        <div class="input-group mb-3">
-                                                       <input type="date" name="input_tugilgan_kuni"  id="date" placeholder="Tug`ilgan yili" class="form-control" />
+                                                       <input type="date" required name="input_tugilgan_kuni"  id="date" placeholder="Tug`ilgan yili" class="form-control" />
                                                        </div>
 
                                                        <div class="input-group mb-3">
@@ -540,7 +546,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 
 </body>
 <br>
-<footer class="bg-light text-center text-lg-start">
+<footer class="bg-light text-center text-lg-start fixed-bottom">
 <!-- Copyright -->
 <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.025);">
 © 2023 Copyright:
