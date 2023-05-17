@@ -395,6 +395,32 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                               </div>
                               <!-- Modal Delete data End -->
 
+                              <!-- Modal Delete Table Start -->
+                              <div class="modal top fade" id="ModalDeleteTable" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
+                                   <div class="modal-dialog">
+                                   <div class="modal-content">
+                                        <form action="delete_table.php" method="POST">
+                                             <div class="modal-header">
+                                             <h5 class="modal-title" id="exampleModalLabel">Jadvalni o‘chirish</h5>
+                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                             </div>
+                                             <div class="modal-body">
+                                                  <input type="hidden" name="delete_id" id="delete_id">
+                                                  <!-- <label for="" name="fish_delete" id="fish_delete"></label> -->
+                                                  Agar jadvalni o'chirsangiz ushbu ro'yxatda mavjud ma'lumotlar umuman tiklanmaydi. Jadvalni o'chirmoqchimisiz? 
+                                             </div>
+                                             <div class="modal-footer">
+                                             <button type="submit" name="delete_table" class="btn btn-danger">Ha</button>
+                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                  Qaytish
+                                             </button>
+                                             </div>
+                                        </form>
+                                   </div>
+                                   </div>
+                              </div>
+                              <!-- Modal Delete Table End -->
+
                               <!-- Modal Natijalarni kiritish Start-->
                               <div class="modal top fade" id="ModalInsertNatija" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
                                    <div class="modal-dialog  ">
@@ -450,6 +476,10 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                                    </div>
                               </div>
                               <!-- Modal Natijalarni kiritish End -->
+
+                              <div>
+                                   <button type="submit" class="btn btn-danger mt-2" data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#ModalDeleteTable"><i class="fas fa-trash-can me-2"></i>Jadvalni o'chirish</button>
+                              </div>
 
 
 
