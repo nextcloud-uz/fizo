@@ -7,6 +7,7 @@
     
     if(isset($_POST['insertdata']))
     {
+        $username = $_SESSION['username'];
         $id = $_POST['user_id'];
         $fish           = $_POST['input_fish'];
         $tugilgan_kuni  = $_POST['input_tugilgan_kuni'];
@@ -145,8 +146,8 @@
         }
 
         // Barcha var larni bazaga kiritish
-        $sql = "INSERT INTO `user401` (`fish`, `tugilgan_kuni`, `yoshi`, `guruhi`, `natija1`, `ball1`, `natija2`, `ball2`, `natija3`, `ball3`, `natija4`, `ball4`, `umumiyball`, `baho`, `bolinma_nomi`)
-        VALUES ('$fish', '$tugilgan_kuni', ($yoshi), '$guruhi', '$natija1', '$ball1', '$natija2', '$ball2', '$natija3', '$ball3', '$natija4', '$ball4', '$umumiyball', '$baho', '$bolinmanomi')";
+        $sql = "INSERT INTO `user401` (`fish`, `tugilgan_kuni`, `yoshi`, `guruhi`, `natija1`, `ball1`, `natija2`, `ball2`, `natija3`, `ball3`, `natija4`, `ball4`, `umumiyball`, `baho`, `bolinma_nomi`, `data_username`)
+        VALUES ('$fish', '$tugilgan_kuni', ($yoshi), '$guruhi', '$natija1', '$ball1', '$natija2', '$ball2', '$natija3', '$ball3', '$natija4', '$ball4', '$umumiyball', '$baho', '$bolinmanomi', '$username')";
         $res = mysqli_query($conn, $sql);
 
         if ($res)

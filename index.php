@@ -1,3 +1,21 @@
+<?php 
+  include 'db_conn.php';
+
+  $visitor_ip = $_SERVER['REMOTE_ADDR'];
+
+  $counter_query = "SELECT * FROM counter_table WHERE `ip_address` = '$visitor_ip'";
+  $counter_result = mysqli_query($conn, $counter_query);
+
+  if(!$counter_result){
+    die("Result error<br>".$counter_query);
+  }
+
+  $total_visitors = mysqli_num_rows($counter_result);
+  if($total_visitors<1){
+    $counter_query = "INSERT INTO counter_table(`ip_address`) VALUES('$visitor_ip')";
+    $counter_result = mysqli_query($conn, $counter_query);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

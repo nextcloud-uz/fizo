@@ -4,6 +4,11 @@ session_start();
 if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 
 include 'db_conn.php';
+
+$counter_query = "SELECT * FROM counter_table";
+$counter_result = mysqli_query($conn, $counter_query);
+$total_visitors = mysqli_num_rows($counter_result);
+
 $result1 = mysqli_query($conn, "SELECT * FROM mashqlar");
 $result2 = mysqli_query($conn, "SELECT * FROM mashqlar");
 $result3 = mysqli_query($conn, "SELECT * FROM mashqlar");
@@ -12,13 +17,14 @@ $resuserbolinma = mysqli_query($conn, "SELECT * FROM userbolinma");
 
 $row_bolinmanomi = mysqli_fetch_row(mysqli_query($conn, "SELECT bolinmanomi, `1-mashq`, `2-mashq`, `3-mashq`, `4-mashq` FROM users WHERE `id` =".$_SESSION['id']));
 $bolinmanomi = $row_bolinmanomi[0];
+$username = $_SESSION['username'];
 
 $mashqnomi1 = mysqli_fetch_row(mysqli_query($conn, "SELECT `mashq_nomi`, mashq_server_nomi FROM mashqlar WHERE `mashqlar_id` = '$row_bolinmanomi[1]'"));
 $mashqnomi2 = mysqli_fetch_row(mysqli_query($conn, "SELECT `mashq_nomi`, mashq_server_nomi FROM mashqlar WHERE `mashqlar_id` = '$row_bolinmanomi[2]'"));
 $mashqnomi3 = mysqli_fetch_row(mysqli_query($conn, "SELECT `mashq_nomi`, mashq_server_nomi FROM mashqlar WHERE `mashqlar_id` = '$row_bolinmanomi[3]'"));
 $mashqnomi4 = mysqli_fetch_row(mysqli_query($conn, "SELECT `mashq_nomi`, mashq_server_nomi FROM mashqlar WHERE `mashqlar_id` = '$row_bolinmanomi[4]'"));
 
-$resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = '$row_bolinmanomi[0]'");
+$resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = '$row_bolinmanomi[0]' AND `data_username` = '$username'");
 
  ?>
 <!DOCTYPE html>
@@ -577,13 +583,19 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 </body>
 <br>
 <footer class="bg-light text-center text-lg-start fixed-bottom">
-<!-- Copyright -->
-<div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.025);">
-© 2023 Copyright:
-<a class="text-reset fw-bold" href="https://fizo.uz/">Fizo.uz</a>
-| Barcha huquqlar himoyalangan.
-</div>
-<!-- Copyright -->
+     <div class="d-flex justify-content-between" style="background-color: rgba(0, 0, 0, 0.025);">
+          <div class="text-center p-2">Location</div>
+          <!-- Copyright -->
+          <div class="text-center p-2" >
+          © 2023 Copyright:
+          <a class="text-reset fw-bold" href="https://fizo.uz/">Fizo.uz</a>
+          | Barcha huquqlar himoyalangan.
+          </div>
+          <!-- Copyright -->
+          <div class="text-center p-2">
+          <p class="fw-light m-0">Saytdan foydalanuvchilar: <?php echo $total_visitors ?></p>
+          </div>
+     </div>
 </footer>
 
 </html>
