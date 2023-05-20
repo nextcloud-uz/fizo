@@ -50,6 +50,11 @@ input {
   z-index: 5;
 }
 
+form.signform{
+  justify-content: right !important;
+}
+
+
 th {
   padding: 3px 3px !important;
   vertical-align: middle;
@@ -98,19 +103,32 @@ p.pro{
   text-align: center;
 }
 
+p.login{
+  margin: 0;
+}
+
 p.baho.baho5{
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
 }
-
-form.sign-up-form {
-  opacity: 0;
-  z-index: 1;
+div.modal-header.login{
+  justify-content: center !important;
 }
 
+div.modal-body.login{
+  justify-content: center !important;
+  text-align: center;
+}
+
+/* form.sign-up-form {
+  opacity: 0;
+  z-index: 1;
+} */
+
 form.sign-in-form {
-  z-index: 2;
+  /* z-index: 2; */
+  justify-content: center !important;
 }
 
 p.royxat{
@@ -121,12 +139,12 @@ p.royxat{
   margin: 0.8rem;
 } */
 
-div.d-flex.justify-content-center.dobavit{
+/* div.d-flex.justify-content-center.dobavit{
   /* padding: 25px; */
   /* margin-bottom: 0.8rem; */
   /* background: rgb(121,121,121);
-background: linear-gradient(27deg, rgba(121,121,121,0.07326680672268904) 0%, rgba(255,255,255,1) 86%); */
-}
+background: linear-gradient(27deg, rgba(121,121,121,0.07326680672268904) 0%, rgba(255,255,255,1) 86%); 
+} */
 
 .title {
   font-size: 2.2rem;
@@ -135,7 +153,7 @@ background: linear-gradient(27deg, rgba(121,121,121,0.07326680672268904) 0%, rgb
 }
 
 .input-field {
-  max-width: 380px;
+  /* max-width: 380px; */
   width: 100%;
   background-color: #f0f0f0;
   margin: 10px 0;
@@ -201,7 +219,7 @@ background: linear-gradient(27deg, rgba(121,121,121,0.07326680672268904) 0%, rgb
 }
 
 .btn1 {
-  width: 150px;
+  width: 100%;
   background-color: #5995fd;
   border: none;
   outline: none;
@@ -213,6 +231,7 @@ background: linear-gradient(27deg, rgba(121,121,121,0.07326680672268904) 0%, rgb
   margin: 10px 0;
   cursor: pointer;
   transition: 0.5s;
+  /* display: grid; */
 }
 
 .btn1:hover {
@@ -328,10 +347,10 @@ background: linear-gradient(27deg, rgba(121,121,121,0.07326680672268904) 0%, rgb
   z-index: 2;
 }
 
-.container1.sign-up-mode form.sign-in-form {
+/* .container1.sign-up-mode form.sign-in-form {
   opacity: 0;
   z-index: 1;
-}
+} */
 
 .container1.sign-up-mode .right-panel .image,
 .container1.sign-up-mode .right-panel .content {

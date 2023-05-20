@@ -77,13 +77,13 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                     <div class="collapse navbar-collapse" id="navbarNav">
                          <ul class="navbar-nav">
                          <li class="nav-item">
-                              <a class="nav-link active" aria-current="page" href="./index.php">Bosh sahifa</a>
+                              <a class="nav-link active" aria-current="page" href="#">Bosh sahifa</a>
                          </li>
                          <li class="nav-item">
                               <a class="nav-link" href="#">Mashqlar</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link" href="home.php">Ro`yxatlar</a>
+                              <a class="nav-link" href="#">Ro`yxatlar</a>
                          </li>
                          <li class="nav-item">
                               <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#PROClickmodal">PRO versiya</a>
@@ -103,7 +103,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                               <!-- <div class="d-flex justify-content-center dobavit"> -->
 
                               <!-- </div> -->
-                              <button type="button" class="btn btn-warning bg-gradient ms-1">
+                              <button type="button" class="btn btn-primary bg-gradient ms-1">
                               <a href="logout.php" class="chiqish">Chiqish</a>
                               </button>
                          </div>
@@ -499,7 +499,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                     }
                      ?>
 
-                    <!-- Modal Pro versiya Start-->
+                     <!-- Modal Pro versiya Start-->
                     <div class="modal fade" id="PROClickmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
                          <div class="modal-dialog modal-dialog-centered">
                               <div class="modal-content">
