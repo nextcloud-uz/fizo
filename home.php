@@ -30,7 +30,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Fizo.uz | Bosh sahifa</title>
+	<title>Fizo.uz | Ro'yxatlar</title>
      <link rel="icon" type="image/x-icon" href="./img/fizo.ico">
 
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -62,7 +62,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
      <header class="header">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
                <div class="container-fluid">
-                    <a class="navbar-brand" href="./home.php">FIZO.UZ</a>
+                    <a class="navbar-brand" href="./index.php">FIZO.UZ</a>
                     <button
                          class="navbar-toggler"
                          type="button"
@@ -80,7 +80,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                               <a class="nav-link active" aria-current="page" href="./index.php">Bosh sahifa</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link" href="#">Mashqlar</a>
+                              <a class="nav-link" href="./#mashqlar">Mashqlar</a>
                          </li>
                          <li class="nav-item">
                               <a class="nav-link" href="home.php">Ro`yxatlar</a>

@@ -25,6 +25,11 @@
      <link rel="icon" type="image/x-icon" href="./img/fizo.ico">
 
 	<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="styles_index.css">
+  <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
      <script src="js/script.js" defer></script>
 
      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" /> -->
@@ -53,7 +58,7 @@
     <header class="header">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
                <div class="container-fluid">
-                    <a class="navbar-brand" href="./home.php">FIZO.UZ</a>
+                    <a class="navbar-brand" href="./index.php">FIZO.UZ</a>
                     <button
                          class="navbar-toggler"
                          type="button"
@@ -71,10 +76,18 @@
                               <a class="nav-link active" aria-current="page" href="#">Bosh sahifa</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link" href="#">Mashqlar</a>
+                              <a class="nav-link" href="#mashqlar">Mashqlar</a>
                          </li>
                          <li class="nav-item">
+                         <?php
+                              
+                              if (isset($_SESSION['id']) && isset($_SESSION['username'])){ ?>
                               <a class="nav-link" href="./home.php">Ro`yxatlar</a>
+                              <?php 
+                              } else { ?>
+                                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#LoginModal1">Ro`yxatlar</a>
+                              <?php
+                              } ?>
                          </li>
                          <li class="nav-item">
                               <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#PROClickmodal">PRO versiya</a>
@@ -106,100 +119,7 @@
                                 
                               <a class="btn btn-primary bg-gradient ms-1" data-bs-toggle="modal" data-bs-target="#LoginModal1" role="button">Kirish</a>
                                
-                              <!-- First modal dialog -->
-                              <div class="modal fade" id="LoginModal1" aria-hidden="true" aria-labelledby="exampleModalToggleLabel1" tabindex="-1">
-                                <div class="modal-dialog modal-dialog-centered">
-                                  <div class="modal-content">
-                                    <div class="modal-header login">
-                                      <h5 class="modal-title" id="LoginModal1">Tizimga kirish</h5>
-                                      <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                                    </div>
-                                    <div class="modal-body login">
-                                    <form action="login.php" class="signform" method="post">
-                                    <!-- <h2 class="title">Tizimga kirish</h2> -->
-                                    <?php if (isset($_GET['error'])) { ?>
-                                      <p class="error"><?php echo $_GET['error']; ?></p>
-                                    <?php } ?>
-                                    <div class="input-field">
-                                      <i class="fas fa-user"></i>
-                                      <input type="text" name="username" placeholder="Login" />
-                                    </div>
-                                    <div class="input-field">
-                                      <i class="fas fa-lock"></i>
-                                      <input type="password" name="password" placeholder="Parol" />
-                                    </div>
-                                    
-                                    <input type="submit" value="Kirish" class="btn1 solid" />
-                                  
-                                  </form>
-                                    <p class="login">
-                                    Siz tizimda birinchi martamisiz? <a href="#" data-bs-target="#RegisterModal" data-bs-toggle="modal" data-bs-dismiss="modal">Ro'yxatdan o'tish</a>
-                                    </p>
-                                      
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
-                                      <!-- <button class="btn btn-primary" data-bs-target="#RegisterModal" data-bs-toggle="modal" data-bs-dismiss="modal">
-                                        Ro'yxatdan o'tish
-                                      </button> -->
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- Second modal dialog -->
-                              <div class="modal fade" id="RegisterModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel22" tabindex="-1">
-                                <div class="modal-dialog modal-dialog-centered">
-                                  <div class="modal-content">
-                                    <div class="modal-header login">
-                                      <h5 class="modal-title" id="exampleModalToggleLabel22">Ro'yxatdan o'tish</h5>
-                                      <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                                    </div>
-                                    <div class="modal-body login">
-                                    <form action="registr_user.php" method="post" class="sign-in-form">
-                                    
-                                      <?php if (isset($_GET['error'])) { ?>
-                                        <p class="error"><?php echo $_GET['error']; ?></p>
-                                      <?php } ?>
-
-                                      <?php if (isset($_GET['success'])) { ?>
-                                        <p class="success"><?php echo $_GET['success']; ?></p>
-                                      <?php } ?>
-
-                                      <div class="input-field">
-                                        <i class="fas fa-file-signature"></i>
-                                        <?php if (isset($_GET['name'])) { ?>
-                                          <input type="text" name="name" placeholder="Ismingiz" value="<?php echo $_GET['name']; ?>" />
-                                        <?php } else { ?>
-                                          <input type="text" name="name" placeholder="Ismingiz">
-                                        <?php } ?>
-                                      </div>
-
-                                      <div class="input-field">
-                                        <i class="fas fa-user"></i>
-                                        <?php if (isset($_GET['username'])) { ?>
-                                          <input type="text" name="username" placeholder="Login" value="<?php echo $_GET['username']; ?>" />
-                                        <?php } else { ?>
-                                          <input type="text" name="username" placeholder="Login">
-                                        <?php } ?>
-                                      </div>
-
-                                      <div class="input-field">
-                                        <i class="fas fa-lock"></i>
-                                        <input type="password" name="password" placeholder="Parol " />
-                                      </div>
-
-                                      <input type="submit" class="btn1" name="reg_user" value="Tasdiqlash" />
-                                      
-                                    </form>
-
-                                      Siz ro'yxatdan o'tganmisiz? <a href="#" data-bs-target="#LoginModal1" data-bs-toggle="modal" data-bs-dismiss="modal">Tizimga kirish</a>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                              
 
                               <?php } ?>
                               
@@ -207,8 +127,190 @@
                          </div>
                </div>
           </nav>
+
+          <!-- Index 1 secsiya -->
+          <div class="section__container header__container">
+            <div class="header__image">
+              <img src="assets/pexels4.jpg" alt="header" />
+              <img src="assets/pexels5.jpg" alt="header" />
+            </div>
+            <div class="header__content">
+              <div>
+                <p class="sub__header">Hisoblash endi qiyin emas</p>
+                <h1>Bu juda oson 😊</h1><br /><h1 class="hash">natijalarni kiritsak bo'ldi</h1> 
+                <p class="section__subtitle">
+                  Fizo.uz elektron portali jismoniy tayyorgarlik natijalarini avtomatik tarzda hisoblaydi 
+                  va sizga kerakli formatda ro'yxatni shakllantirib beradi. Sizdan faqatgina natijalarni kiritish, bizdan hisoblash. 
+                </p>
+                <div class="action__btns">
+                  <button class="btn2">Sinov</button>
+                  <div class="story">
+                    <div class="video__image">
+                      <img src="assets/story.jpg" alt="story" />
+                      <span><i class="ri-play-fill"></i></span>
+                    </div>
+                    <span>Video yo`riqnoma</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
     </header>
     <main>
+
+    <section id="mashqlar" class="section__container destination__container">
+      <div class="section__header">
+        <div>
+          <h2 class="section__title">Mashqlar ro'yxati</h2>
+          <p class="section__subtitle">
+            Har bir mashq haqida ma'lumot va uni bajarish tartibi ko'rsatib o'tilgan.
+          </p>
+        </div>
+        <div class="destination__nav">
+          <span><i class="ri-arrow-left-s-line"></i></span>
+          <span><i class="ri-arrow-right-s-line"></i></span>
+        </div>
+      </div>
+      <div class="destination__grid">
+        <div class="destination__card">
+          <img src="assets/destination-1.jpg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Banff</p>
+            <p class="destination__subtitle">Canada</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-2.jpg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Machu Picchu</p>
+            <p class="destination__subtitle">Peru</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-3.jpg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Lauterbrunnen</p>
+            <p class="destination__subtitle">Switzerland</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-4.jpg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Zhangjiajie</p>
+            <p class="destination__subtitle">China</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-3.jpg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Lauterbrunnen</p>
+            <p class="destination__subtitle">Switzerland</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-4.jpg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Zhangjiajie</p>
+            <p class="destination__subtitle">China</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trip">
+      <div class="section__container trip__container">
+        <h2 class="section__title">Best trip package</h2>
+        <p class="section__subtitle">
+          Explore your suitable and dream places around the world. Here you can
+          find your right destination.
+        </p>
+        <div class="trip__grid">
+          <div class="trip__card">
+            <img src="assets/trip-1.jpg" alt="trip" />
+            <div class="trip__details">
+              <p>Wasserwerk Frelberg, Germany</p>
+              <div class="rating"><i class="ri-star-fill"></i> 4.2</div>
+              <div class="booking__price">
+                <div class="price"><span>From</span> $300</div>
+                <button class="book__now">Book Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="trip__card">
+            <img src="assets/trip-2.jpg" alt="trip" />
+            <div class="trip__details">
+              <p>Patagonia, Argentina and Chile</p>
+              <div class="rating"><i class="ri-star-fill"></i> 4.5</div>
+              <div class="booking__price">
+                <div class="price"><span>From</span> $450</div>
+                <button class="book__now">Book Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="trip__card">
+            <img src="assets/trip-3.jpg" alt="trip" />
+            <div class="trip__details">
+              <p>The Dolomites, Italy</p>
+              <div class="rating"><i class="ri-star-fill"></i> 4.7</div>
+              <div class="booking__price">
+                <div class="price"><span>From</span> $400</div>
+                <button class="book__now">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="view__all">
+          <button class="btn2">View All</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallary">
+      <div class="section__container gallary__container">
+        <div class="image__gallary">
+          <div class="gallary__col">
+            <img src="assets/gallery-1.jpg" alt="gallary" />
+          </div>
+          <div class="gallary__col">
+            <img src="assets/gallery-2.jpg" alt="gallary" />
+            <img src="assets/gallery-3.jpg" alt="gallary" />
+          </div>
+        </div>
+        <div class="gallary__content">
+          <div>
+            <h2 class="section__title">
+              Our trip gallary that will inspire you
+            </h2>
+            <p class="section__subtitle">
+              Explore your suitable and dream places around the world. Here you
+              can find your right destination.
+            </p>
+            <button class="btn2">View All</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subscribe">
+      <div class="section__container subscribe__container">
+        <div class="subscribe__content">
+          <h2 class="section__title">Subscribe to get special prize</h2>
+          <p class="section__subtitle">
+            Explore your suitable and dream places around the world. Here you
+            can find your right destination.
+          </p>
+        </div>
+        <div class="subscribe__form">
+          <form>
+            <input type="email" placeholder="Your email here" />
+            <button class="btn2" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    
 
     <!-- Modal Pro versiya Start-->
     <div class="modal fade" id="PROClickmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
@@ -235,6 +337,101 @@
           </div>
     </div>
     <!-- Modal Pro versiya End -->
+
+    <!-- Login modal dialog -->
+    <div class="modal fade" id="LoginModal1" aria-hidden="true" aria-labelledby="exampleModalToggleLabel1" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header login">
+            <h5 class="modal-title" id="LoginModal1">Tizimga kirish</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          </div>
+          <div class="modal-body login">
+          <form action="login.php" class="signform" method="post">
+          <!-- <h2 class="title">Tizimga kirish</h2> -->
+          <?php if (isset($_GET['error'])) { ?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+          <?php } ?>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" required name="username" placeholder="Login" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" required name="password" placeholder="Parol" />
+          </div>
+          
+          <input type="submit" value="Kirish" class="btn1 solid" />
+        
+        </form>
+          <p class="login">
+          Siz tizimda birinchi martamisiz? <a href="#" data-bs-target="#RegisterModal" data-bs-toggle="modal" data-bs-dismiss="modal">Ro'yxatdan o'tish</a>
+          </p>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+            <!-- <button class="btn btn-primary" data-bs-target="#RegisterModal" data-bs-toggle="modal" data-bs-dismiss="modal">
+              Ro'yxatdan o'tish
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Registr modal dialog -->
+    <div class="modal fade" id="RegisterModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel22" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header login">
+            <h5 class="modal-title" id="exampleModalToggleLabel22">Ro'yxatdan o'tish</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          </div>
+          <div class="modal-body login">
+          <form action="registr_user.php" method="post" class="sign-in-form">
+          
+            <?php if (isset($_GET['error'])) { ?>
+              <p class="error"><?php echo $_GET['error']; ?></p>
+            <?php } ?>
+
+            <?php if (isset($_GET['success'])) { ?>
+              <p class="success"><?php echo $_GET['success']; ?></p>
+            <?php } ?>
+
+            <div class="input-field">
+              <i class="fas fa-file-signature"></i>
+              <?php if (isset($_GET['name'])) { ?>
+                <input type="text" required name="name" placeholder="Ismingiz" value="<?php echo $_GET['name']; ?>" />
+              <?php } else { ?>
+                <input type="text" required name="name" placeholder="Ismingiz">
+              <?php } ?>
+            </div>
+
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <?php if (isset($_GET['username'])) { ?>
+                <input type="text" name="username" placeholder="Login" value="<?php echo $_GET['username']; ?>" />
+              <?php } else { ?>
+                <input type="text" required name="username" placeholder="Login">
+              <?php } ?>
+            </div>
+
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" required name="password" placeholder="Parol " />
+            </div>
+
+            <input type="submit" class="btn1" name="reg_user" value="Tasdiqlash" />
+            
+          </form>
+
+            Siz ro'yxatdan o'tganmisiz? <a href="#" data-bs-target="#LoginModal1" data-bs-toggle="modal" data-bs-dismiss="modal">Tizimga kirish</a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     
 
