@@ -24,6 +24,12 @@
         $mashqservernomi3     = $_POST['mashqservernomi3'];
         $mashqservernomi4     = $_POST['mashqservernomi4'];
 
+        // echo $mashqservernomi1;
+        // echo $mashqservernomi2;
+        // echo $mashqservernomi3;
+        // echo $mashqservernomi4;
+
+
 
         $yoshi = "SELECT TIMESTAMPDIFF(YEAR, '$tugilgan_kuni', curdate())";
         $result = mysqli_query($conn, $yoshi);
@@ -132,16 +138,16 @@
         // echo $umumiyball;
 
         // Bahoni chiqarish va o`zgaruvchiga yozish
-        if($umumiyball > 80){
+        if($umumiyball >= 70){
           $baho = 5;
         }
-        if($umumiyball > 70 && $umumiyball < 80){
+        if($umumiyball >= 55 && $umumiyball < 70){
           $baho = 4;
         }
-        if($umumiyball > 60 && $umumiyball < 70){
+        if($umumiyball >= 38 && $umumiyball < 55){
           $baho = 3;
         }
-        if($umumiyball < 50){
+        if($umumiyball < 38){
           $baho = 2;
         }
 
