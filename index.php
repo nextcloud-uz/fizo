@@ -220,48 +220,47 @@
 
     <section class="trip">
       <div class="section__container trip__container">
-        <h2 class="section__title">Best trip package</h2>
+        <h2 class="section__title">Baholash tartibi</h2>
         <p class="section__subtitle">
-          Explore your suitable and dream places around the world. Here you can
-          find your right destination.
+          Harbiy xizmatchilarni jismoniy tayyorgarlik holatini tekshirish va baholash tartibi
         </p>
         <div class="trip__grid">
           <div class="trip__card">
             <img src="assets/trip-1.jpg" alt="trip" />
             <div class="trip__details">
-              <p>Wasserwerk Frelberg, Germany</p>
-              <div class="rating"><i class="ri-star-fill"></i> 4.2</div>
+              <p>"A'lo" baho</p>
+              <div class="rating"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> 5</div>
               <div class="booking__price">
-                <div class="price"><span>From</span> $300</div>
-                <button class="book__now">Book Now</button>
+                <div class="price"> 70 <span>balldan</span> 100 <span>ballgacha</span></div>
+                <button class="book__now">Batafsil</button>
               </div>
             </div>
           </div>
           <div class="trip__card">
             <img src="assets/trip-2.jpg" alt="trip" />
             <div class="trip__details">
-              <p>Patagonia, Argentina and Chile</p>
-              <div class="rating"><i class="ri-star-fill"></i> 4.5</div>
+              <p>"Yaxshi" baho</p>
+              <div class="rating"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> 4</div>
               <div class="booking__price">
-                <div class="price"><span>From</span> $450</div>
-                <button class="book__now">Book Now</button>
+                <div class="price">55 <span>balldan</span> 70 <span>ballgacha</span></div>
+                <button class="book__now">Batafsil</button>
               </div>
             </div>
           </div>
           <div class="trip__card">
             <img src="assets/trip-3.jpg" alt="trip" />
             <div class="trip__details">
-              <p>The Dolomites, Italy</p>
-              <div class="rating"><i class="ri-star-fill"></i> 4.7</div>
+              <p>"Qoniqarli" baho</p>
+              <div class="rating"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> 3</div>
               <div class="booking__price">
-                <div class="price"><span>From</span> $400</div>
-                <button class="book__now">Book Now</button>
+                <div class="price"> 38 <span>balldan</span> 55 <span>ballgacha</span></div>
+                <button class="book__now">Batafsil</button>
               </div>
             </div>
           </div>
         </div>
         <div class="view__all">
-          <button class="btn2">View All</button>
+          <button class="btn2">Batafsil</button>
         </div>
       </div>
     </section>
@@ -280,19 +279,18 @@
         <div class="gallary__content">
           <div>
             <h2 class="section__title">
-              Our trip gallary that will inspire you
+              Harbiy sportchi
             </h2>
             <p class="section__subtitle">
-              Explore your suitable and dream places around the world. Here you
-              can find your right destination.
+              90 balldan ko`p ball jamlagan harbiy xizmatchilar yuqori jismoniy tayyorgarlikka ega hisoblanib, ular <br><span class="harbiysportchi">"Harbiy sportchi"</span>  ko`krak nishoni talabini bajargan hisoblanadi.
             </p>
-            <button class="btn2">View All</button>
+            <button class="btn2">Batafsil</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="subscribe">
+    <!-- <section class="subscribe">
       <div class="section__container subscribe__container">
         <div class="subscribe__content">
           <h2 class="section__title">Subscribe to get special prize</h2>
@@ -308,7 +306,7 @@
           </form>
         </div>
       </div>
-    </section>
+    </section> -->
 
     
 
@@ -447,6 +445,22 @@
         </div>
       </div>
     </div>
+
+    <footer class="bg-light text-center text-lg-start">
+     <div class="d-flex justify-content-between" style="background-color: rgba(0, 0, 0, 0.025);">
+          <div class="text-center p-2">Location</div>
+          <!-- Copyright -->
+          <div class="text-center p-2" >
+          © 2023 Copyright:
+          <a class="text-reset fw-bold" href="https://fizo.uz/">Fizo.uz</a>
+          | Barcha huquqlar himoyalangan.
+          </div>
+          <!-- Copyright -->
+          <div class="text-center p-2">
+          <p class="fw-light m-0">STBS: <?php echo $total_visitors ?></p>
+          </div>
+     </div>
+</footer>
 
     
 

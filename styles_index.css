@@ -326,6 +326,12 @@ body {
 
 .rating {
   color: goldenrod;
+  font-size: 2.1rem;
+}
+
+span.harbiysportchi{
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .booking__price {

@@ -593,7 +593,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
           </div>
           <!-- Copyright -->
           <div class="text-center p-2">
-          <p class="fw-light m-0">Saytdan foydalanuvchilar: <?php echo $total_visitors ?></p>
+          <p class="fw-light m-0">STBS: <?php echo $total_visitors ?></p>
           </div>
      </div>
 </footer>

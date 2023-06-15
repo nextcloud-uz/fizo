@@ -138,13 +138,13 @@
         // echo $umumiyball;
 
         // Bahoni chiqarish va o`zgaruvchiga yozish
-        if($umumiyball >= 70){
+        if($umumiyball >= 70 && $ball1 > 13 && $ball2 > 13 && $ball3 > 13 && $ball4 > 13){
           $baho = 5;
         }
-        if($umumiyball >= 55 && $umumiyball < 70){
+        if($umumiyball >= 55 && $umumiyball < 70 && $ball1 > 10 && $ball2 > 10 && $ball3 > 10 && $ball4 > 10){
           $baho = 4;
         }
-        if($umumiyball >= 38 && $umumiyball < 55){
+        if($umumiyball >= 38 && $umumiyball < 55 && $ball1 > 7 && $ball2 > 7 && $ball3 > 7 && $ball4 > 7){
           $baho = 3;
         }
         if($umumiyball < 38){
