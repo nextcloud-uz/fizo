@@ -131,13 +131,14 @@
           <!-- Index 1 secsiya -->
           <div class="section__container header__container">
             <div class="header__image">
-              <img src="assets/pexels4.jpg" alt="header" />
-              <img src="assets/pexels5.jpg" alt="header" />
+              <img src="assets/pexels4.png" alt="header" />
+              <img src="assets/pexels5.png" alt="header" />
             </div>
             <div class="header__content">
               <div>
                 <p class="sub__header">Hisoblash endi qiyin emas</p>
-                <h1>Bu juda oson 😊</h1><br /><h1 class="hash">natijalarni kiritsak bo'ldi</h1> 
+                <!-- <h1>Bu juda oson 😊</h1><br /><h1 class="hash">natijalarni kiritsak bo'ldi</h1>  -->
+                <h1>Bu juda oson </h1><br /><h1 class="hash">natijalarni kiritsak bo'ldi</h1> 
                 <p class="section__subtitle">
                   Fizo.uz elektron portali jismoniy tayyorgarlik natijalarini avtomatik tarzda hisoblaydi 
                   va sizga kerakli formatda ro'yxatni shakllantirib beradi. Sizdan faqatgina natijalarni kiritish, bizdan hisoblash. 
