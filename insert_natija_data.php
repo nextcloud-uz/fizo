@@ -34,7 +34,7 @@
         $yoshi = "SELECT TIMESTAMPDIFF(YEAR, '$tugilgan_kuni', curdate())";
         $result = mysqli_query($conn, $yoshi);
         $row = mysqli_fetch_row($result);
-        echo $row[0];
+        // echo $row[0];
         
         if($row[0] < 28){
           $guruhi = "1guruh";
@@ -55,7 +55,7 @@
           $guruhi = "6guruh";
         }
         
-        echo $guruhi;
+        // echo $guruhi;
 
 
         
@@ -215,7 +215,7 @@
         if ($res)
         {
             echo '<script> alert("Ma`lumotlar bazaga kiritildi"); </script>';
-            // header('Location: home.php');
+            header('Location: home.php');
         }
         else
         {

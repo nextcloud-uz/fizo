@@ -116,10 +116,8 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
           <div class="container mt-1 mt-1">
                <h3 class="mt-2 align">Xush kelibsiz, <?php echo $_SESSION['name']; ?></h3>
                <div class="note note-info mb-2 ">
-               <strong>Birinchi navbatda:</strong> Birinchi navbatda ro`yxat shakllantirish tugmasini bosib kerakli mashqlarni tanlang va OK tugmasini bosing
-               Lorem, <code>ipsum dolor</code>  sit amet consectetur adipisicing elit. Cum
-               doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui necessitatibus delectus
-               placeat illo rem id nisi consequatur esse, sint perspiciatis soluta porro?
+               <strong>Eslatma:</strong> Ushbu ro`yxatga kiritiladigan ma'lumotlarni faqat o'zingiz ko'rishingiz va boshqalar uchun bu <strong>ma'lumotlarga ruxsat yo'qligini</strong> bildiramiz. <br>
+               <code>Jadvalga kiritiladigan ma'lumotlaringizni shartli ravishda belgilashingiz ham mumkin.</code>
                </div>
 
                <ul class="list-unstyled">
