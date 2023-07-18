@@ -313,42 +313,41 @@
 
     <!-- Modal Pro versiya Start-->
     <div class="modal fade" id="PROClickmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
-          <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">PRO versiya</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                    <p class="pro">PRO versiya ustida amaliy ishlar olib borilmoqda. <br>
-                        Yaqin kunlar ichida ishga tushadi.</p>
-                        <!-- <div class="accordion" id="accordionExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                              Pro versiya nimalar beradi?
-                              </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                              </div>
-                            </div>
-                          </div> -->
-                          
-                        </div>
-
-
-                    </div>
-                    <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-primary">Saqlash</button> -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        OK
-                    </button>
-                    </div>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">PRO versiya</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-          </div>
+                <div class="modal-body">
+
+                <p class="pro">PRO versiya ustida amaliy ishlar olib borilmoqda. <br>
+                    Yaqin kunlar ichida ishga tushadi.</p>
+                    
+                    <!-- <div class="accordion" id="accordionExample">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Pro versiya nimalar beradi?
+                          </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          </div>
+                        </div>
+                      </div> -->
+                      
+                </div>
+
+              <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-primary">Saqlash</button> -->
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  OK
+              </button>
+              </div>
+        </div>
+      </div>
     </div>
     <!-- Modal Pro versiya End -->
 
