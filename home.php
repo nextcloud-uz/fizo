@@ -5,7 +5,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 
 include 'db_conn.php';
 
-$counter_query = "SELECT * FROM counter_table";
+$counter_query = "SELECT * FROM tb_data";
 $counter_result = mysqli_query($conn, $counter_query);
 $total_visitors = mysqli_num_rows($counter_result);
 
@@ -50,6 +50,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
      <link rel="stylesheet" href="css/mdb.min.css" />
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <!-- <script
      type="text/javascript"
      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
@@ -595,6 +596,23 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
           </div>
      </div>
 </footer>
+
+<script type="text/javascript">
+    $.getJSON('http://ip-api.com/json', function(ip){
+      var data = {
+        ip: ip.query,
+        isp: ip.isp,
+        country: ip.country,
+        city: ip.regionName
+      };
+
+      $.ajax({
+        url: 'cybersecurity.php',
+        type: 'post',
+        data: data
+      })
+    })
+  </script>
 
 </html>
 
