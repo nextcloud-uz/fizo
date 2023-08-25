@@ -43,116 +43,121 @@
         }
 
         // natija1 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish
-        if(!isset($natija1)){
-          $ball1 = 0;
-        }
-        else{
+        
+        
           $rowww = "SHOW COLUMNS FROM `$guruhi` LIKE '$mashqnomi1'";
           $result = mysqli_query($conn, $rowww);
           $exists = (mysqli_num_rows($result))?TRUE:FALSE;
-          if($exists === TRUE){       
-            if($mashqservernomi1 === 't'){
-              $ball1 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi1` >= '$natija1' ORDER BY id DESC limit 1";
-            }
-            if($mashqservernomi1 === 'c'){
-              $ball1 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi1` <= '$natija1' ORDER BY id DESC limit 1";
-            }
-            $result_ball1 = mysqli_query($conn, $ball1);
-            $row_ball1 = mysqli_fetch_row($result_ball1);
-            if(!isset($row_ball1[0])){
+          if($exists === TRUE){
+            if($natija1=="0" || $natija1==""){
               $ball1 = 0;
             }else{
-              $ball1 = $row_ball1[0];
+              if($mashqservernomi1 === 't'){              
+                $ball1 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi1` >= '$natija1' ORDER BY id DESC limit 1";                       
+              }
+              elseif($mashqservernomi1 === 'c'){
+                $ball1 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi1` <= '$natija1' ORDER BY id DESC limit 1";
+              }
+              $result_ball1 = mysqli_query($conn, $ball1);
+              $row_ball1 = mysqli_fetch_row($result_ball1);
+              if(!isset($row_ball1[0])){
+                $ball1 = 0;
+              }else{
+                $ball1 = $row_ball1[0];
+              }
             }
           }
           else{
-            $ball1 = 25;
+            $ball1 = 0;
+            $ball1_error = 1;
           }       
           
-        }
+        
 
-        // natija2 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish
-        if(!isset($natija2)){
-          $ball2 = 0;
-        }
-        else{
+        // natija2 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish        
+       
           $rowww = "SHOW COLUMNS FROM `$guruhi` LIKE '$mashqnomi2'";
           $result = mysqli_query($conn, $rowww);
           $exists = (mysqli_num_rows($result))?TRUE:FALSE;
-          if($exists === TRUE){ 
-            if($mashqservernomi2 === 't'){
-              $ball2 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi2` >= '$natija2' ORDER BY id DESC limit 1";
-            }
-            if($mashqservernomi2 === 'c'){
-              $ball2 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi2` <= '$natija2' ORDER BY id DESC limit 1";
-            }
-            $result_ball2 = mysqli_query($conn, $ball2);
-            $row_ball2 = mysqli_fetch_row($result_ball2);
-            if(!isset($row_ball2[0])){
+          if($exists === TRUE){
+            if($natija2=="0" || $natija2==""){
               $ball2 = 0;
             }else{
-              $ball2 = $row_ball2[0];
+              if($mashqservernomi2 === 't'){
+                $ball2 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi2` >= '$natija2' ORDER BY id DESC limit 1";
+              }
+              elseif($mashqservernomi2 === 'c'){
+                $ball2 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi2` <= '$natija2' ORDER BY id DESC limit 1";
+              }
+              $result_ball2 = mysqli_query($conn, $ball2);
+              $row_ball2 = mysqli_fetch_row($result_ball2);
+              if(!isset($row_ball2[0])){
+                $ball2 = 0;
+              }else{
+                $ball2 = $row_ball2[0];
+              }
             }
-          }
-          else{
-            $ball2 = 25;
-          }
-        }
+          }else{
+            $ball2 = 0;
+            $ball2_error = 1;
+          }        
 
         // natija3 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish
-        if(!isset($natija3)){
-          $ball3 = 0;
-        }
-        else{
+        
           $rowww = "SHOW COLUMNS FROM `$guruhi` LIKE '$mashqnomi3'";
           $result = mysqli_query($conn, $rowww);
           $exists = (mysqli_num_rows($result))?TRUE:FALSE;
           if($exists === TRUE){
-            if($mashqservernomi3 === 't'){
-              $ball3 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi3` >= '$natija3' ORDER BY id DESC limit 1";
-            }
-            if($mashqservernomi3 === 'c'){
-              $ball3 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi3` <= '$natija3' ORDER BY id DESC limit 1";
-            }
-            $result_ball3 = mysqli_query($conn, $ball3);
-            $row_ball3 = mysqli_fetch_row($result_ball3);
-            if(!isset($row_ball3[0])){
+            if($natija3=="0" || $natija3==""){
               $ball3 = 0;
             }else{
-              $ball3 = $row_ball3[0];
+              if($mashqservernomi3 === 't'){
+                $ball3 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi3` >= '$natija3' ORDER BY id DESC limit 1";
+              }
+              elseif($mashqservernomi3 === 'c'){
+                $ball3 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi3` <= '$natija3' ORDER BY id DESC limit 1";
+              }
+              $result_ball3 = mysqli_query($conn, $ball3);
+              $row_ball3 = mysqli_fetch_row($result_ball3);
+              if(!isset($row_ball3[0])){
+                $ball3 = 0;
+              }else{
+                $ball3 = $row_ball3[0];
+              }
             }
-          }
-          else{
-            $ball3 = 25;
-          }
-        }
+          }else{
+            $ball3 = 0;
+            $ball3_error = 1;
+          }        
 
-         // natija4 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish
-        if(!isset($natija4)){
-          $ball4 = 0;
-        }
-        else{
+         // natija4 ni jadval bilan solishtirish va qiymatini o`zgaruvchiga yozish        
+        
           $rowww = "SHOW COLUMNS FROM `$guruhi` LIKE '$mashqnomi4'";
           $result = mysqli_query($conn, $rowww);
           $exists = (mysqli_num_rows($result))?TRUE:FALSE;
           if($exists === TRUE){
-            if($mashqservernomi4 === 't'){
-              $ball4 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi4` >= '$natija4' ORDER BY id DESC limit 1";
-            }
-            if($mashqservernomi4 === 'c'){
-              $ball4 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi4` <= '$natija4' ORDER BY id DESC limit 1";
-            }
-            $result_ball4 = mysqli_query($conn, $ball4);
-            $row_ball4 = mysqli_fetch_row($result_ball4);
-            if(!isset($row_ball4[0])){
+            if($natija4=="0" || $natija4==""){
               $ball4 = 0;
             }else{
-              $ball4 = $row_ball4[0];
+              if($mashqservernomi4 === 't'){
+                $ball4 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi4` >= '$natija4' ORDER BY id DESC limit 1";
+              }
+              elseif($mashqservernomi4 === 'c'){
+                $ball4 = "SELECT ball FROM `$guruhi` WHERE `$mashqnomi4` <= '$natija4' ORDER BY id DESC limit 1";
+              }
+              $result_ball4 = mysqli_query($conn, $ball4);
+              $row_ball4 = mysqli_fetch_row($result_ball4);
+              if(!isset($row_ball4[0])){
+                $ball4 = 0;
+              }else{
+                $ball4 = $row_ball4[0];
+              }
             }
           }else{
-            $ball4 = 25;
+            $ball4 = 0;
+            $ball4_error = 1;
           }
-        }
+        
 
         // Umumiy ballni hisoblash va o`zgaruvchiga yozish
         $umumiyball = $ball1 + $ball2 + $ball3 + $ball4;

@@ -16,8 +16,19 @@ if(isset($_POST["ip"])){
 
     $total_visitors = mysqli_num_rows($counter_result);
     if($total_visitors<1){
-    $counter_query = "INSERT INTO tb_data VALUES('', '$ip', '$isp', '$country', '$city')";
+    $counter_query = "INSERT INTO `tb_data` (`ip`, `isp`, `country`, `city`) VALUES('$ip', '$isp', '$country', '$city')";
     $counter_result = mysqli_query($conn, $counter_query);
+
+    if ($counter_result)
+        {
+            echo '<script> alert("Ma`lumotlar bazaga kiritildi"); </script>';
+            echo $counter_result;
+            // header('Location: home.php');
+        }
+        else
+        {
+            echo '<script> alert("Ma`lumotlar bazaga kiritilmadi"); </script>';
+        }
     }
 
     // $query = "INSERT INTO tb_data VALUES('', '$ip', '$isp', '$country', '$city')";

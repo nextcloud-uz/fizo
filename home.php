@@ -263,6 +263,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                                         <tr>
                                              <th rowspan="3">T/R</th>
                                              <th rowspan="3">F.I.SH</th>
+                                             <th rowspan="3">Yosh guruhi</th>
                                              <th colspan="8">Mashqlar nomlanishi</th>
                                              <th rowspan="3">Umumiy <br> ball</th>
                                              <th rowspan="3">Baho</th>
@@ -295,6 +296,28 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
                                         <tr>
                                              <td><?php echo $row["user_id"]; ?></td>
                                              <td align="left"><?php echo $row['fish']; ?></td>
+                                             <td class="yoshguruhi"><?php if($row['guruhi'] == "1guruh"){
+                                                  echo "I";
+                                                  }
+                                                  elseif($row['guruhi'] == "2guruh"){
+                                                  echo "II";
+                                                  }
+                                                  elseif($row['guruhi'] == "3guruh"){
+                                                       echo "III";
+                                                  }
+                                                  elseif($row['guruhi'] == "4guruh"){
+                                                       echo "IV";
+                                                  }
+                                                  elseif($row['guruhi'] == "5guruh"){
+                                                       echo "V";
+                                                  }
+                                                  elseif($row['guruhi'] == "6guruh"){
+                                                       echo "VI";
+                                                  }
+                                                  elseif($row['guruhi'] == "7guruh"){
+                                                       echo "VII";
+                                                  }
+                                                  ?></td>
                                              <td><?php echo $row['natija1']; ?></td>
                                              <td><?php echo $row['ball1']; ?></td>
                                              <td><?php echo $row['natija2']; ?></td>
@@ -343,22 +366,22 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 
                                                   <div class="input-group mb-3">
                                                   <input type="text" id="fish" name="fish" class="form-control" placeholder="F.I.SH" aria-label="fish" aria-describedby="basic-addon1">
+                                                  </div>                                                  
+
+                                                  <div class="input-group mb-3">
+                                                  <input type="text" id="natija1" name="natija1" class="form-control" placeholder="<?php echo $mashqnomi1[0] ?> natijalarini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
                                                   </div>
 
                                                   <div class="input-group mb-3">
-                                                  <input type="text" id="natija1" name="natija1" class="form-control" placeholder="1-mashq natijasini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
+                                                  <input type="text" id="natija2" name="natija2" class="form-control" placeholder="<?php echo $mashqnomi2[0] ?> natijalarini kiriting" aria-describedby="basic-addon1">
                                                   </div>
 
                                                   <div class="input-group mb-3">
-                                                  <input type="text" id="natija2" name="natija2" class="form-control" placeholder="2-mashq natijasini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
+                                                  <input type="text" id="natija3" name="natija3" class="form-control" placeholder="<?php echo $mashqnomi3[0] ?> natijalarini kiriting" aria-describedby="basic-addon1">
                                                   </div>
 
                                                   <div class="input-group mb-3">
-                                                  <input type="text" id="natija3" name="natija3" class="form-control" placeholder="3-mashq natijasini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
-                                                  </div>
-
-                                                  <div class="input-group mb-3">
-                                                  <input type="text" id="natija4" name="natija4" class="form-control" placeholder="4-mashq natijasini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
+                                                  <input type="text" id="natija4" name="natija4" class="form-control" placeholder="<?php echo $mashqnomi4[0] ?> natijalarini kiriting" aria-label="mashq" aria-describedby="basic-addon1">
                                                   </div>
 
                                              </div>
@@ -548,10 +571,10 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 
                 $('#edit_id').val(data[0]);
                 $('#fish').val(data[1]);
-                $('#natija1').val(data[2]);
-                $('#natija2').val(data[4]);
-                $('#natija3').val(data[6]);
-                $('#natija4').val(data[8]);
+                $('#natija1').val(data[3]);
+                $('#natija2').val(data[5]);
+                $('#natija3').val(data[7]);
+                $('#natija4').val(data[9]);
             });
         });
     </script>
@@ -583,7 +606,7 @@ $resuser401 = mysqli_query($conn, "SELECT * FROM user401 WHERE `bolinma_nomi` = 
 <br>
 <footer class="bg-light text-center text-lg-start fixed-bottom">
      <div class="d-flex justify-content-between" style="background-color: rgba(0, 0, 0, 0.025);">
-          <div class="text-center p-2">Location</div>
+          <div class="text-center p-2">v1.05</div>
           <!-- Copyright -->
           <div class="text-center p-2" >
           © 2023 Copyright:

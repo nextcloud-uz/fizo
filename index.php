@@ -453,7 +453,7 @@
 
     <footer class="bg-light text-center text-lg-start">
      <div class="d-flex justify-content-between" style="background-color: rgba(0, 0, 0, 0.025);">
-          <div class="text-center p-2">Location</div>
+          <div class="text-center p-2">v1.05</div>
           <!-- Copyright -->
           <div class="text-center p-2" >
           © 2023 Copyright:

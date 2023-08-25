@@ -41,6 +41,11 @@ input {
 h1.hash{
   font-size: 2rem !important;
 }
+td.yoshguruhi{
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
 
 .signin-signup {
   position: absolute;
